@@ -37,12 +37,19 @@
         .valgt {
             background-color: blue;
         }
+<<<<<<< HEAD
+=======
+        header{
+            max-width: 18vw;
+        }
+
+>>>>>>> origin/master
     </style>
 </head>
 
 <body>
     <header>
-        <h1>OUTDOOR DANMARK HEJ</h1>
+     <img src="grafik/logo_turkis.svg" alt="logo" class="logo">
     </header>
     <nav>
         <button data-landsdel="alle" class="valgt">Alle</button>
@@ -84,7 +91,12 @@
         function start() {
             const filterknapper = document.querySelectorAll("nav button");
             filterknapper.forEach(knap => knap.addEventListener("click", filterAktiviteter));
+            document.querySelector(".logo").addEventListener("click", tilForsiden);
             hentData();
+        }
+
+        function tilForsiden(){
+            location.href = "index.html";
         }
 
         function filterAktiviteter() {
@@ -126,9 +138,16 @@
         }
         hentData();
 
+<<<<<<< HEAD
 
         function visDetaljer(single) {
             location.href = `single.html?id=${single._id}`;
         }
+=======
+        function visDetaljer(single){
+            location.href = `single.html?id=${single._id}`;
+        }
+
+>>>>>>> origin/master
     </script>
 </body></html>
