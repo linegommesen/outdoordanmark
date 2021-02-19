@@ -19,15 +19,8 @@
             grid-gap: 10px;
         }
 
-        /*
-        .ikon{
-            max-height: 5%;
-        }
-*/
         article {
-            /*            height: auto;*/
-            background-color: aqua;
-            /*            max-height: 70vh;*/
+            border: 2px solid black;
         }
 
         .ikon {
@@ -39,6 +32,10 @@
         .ikoner {
             display: flex;
         }
+
+        .valgt {
+            background-color: blue;
+        }
     </style>
 </head>
 
@@ -47,11 +44,11 @@
         <h1>OUTDOOR DANMARK HEJ</h1>
     </header>
     <nav>
-        <button data-kategori="alle" class="valgt">Alle</button>
-        <button data-kategori="Sjælland">Sjælland</button>
-        <button data-kategori="Jylland">Jylland</button>
-        <button data-kategori="Fyn">Fyn</button>
-        <button data-kategori="Bornholm">Bornholm</button>
+        <button data-landsdel="alle" class="valgt">Alle</button>
+        <button data-landsdel="Sjælland">Sjælland</button>
+        <button data-landsdel="Jylland">Jylland</button>
+        <button data-landsdel="Fyn">Fyn</button>
+        <button data-landsdel="Bornholm">Bornholm</button>
     </nav>
 
     <main id="liste"></main>
@@ -79,25 +76,49 @@
                 'x-apikey': "602f7b505ad3610fb5bb63a2"
             }
         }
+        document.addEventListener("DOMContentLoaded", start);
+        let aktivitet;
+        let filter = "alle";
+
+        function start() {
+            const filterknapper = document.querySelectorAll("nav button");
+            filterknapper.forEach(knap => knap.addEventListener("click", filterAktiviteter));
+            hentData();
+        }
+
+        function filterAktiviteter() {
+            filter = this.dataset.landsdel;
+//            document.querySelector(".valgt").classList.remove("valgt");
+//            this.classList.add("valgt");
+            visAktiviteter();
+        }
+
         async function hentData() {
             const resspons = await fetch(url, options);
-            const json = await resspons.json();
-            vis(json);
+            aktivitet = await resspons.json();
+            console.log("Aktivitet", aktivitet);
+            visAktiviteter();
         }
-        const main = document.querySelector("#liste");
-        const template = document.querySelector("template").content;
 
-        function vis(json) {
-            console.log(json);
-            json.forEach(aktiviteter => {
-                const klon = template.cloneNode(true);
-                klon.querySelector(".billede").src = medieurl + aktiviteter.billede;
-                klon.querySelector(".navn").textContent = aktiviteter.navn;
-                klon.querySelector(".landsdel").textContent = aktiviteter.landsdel;
-                klon.querySelector(".ikon_1").src = medieurl + aktiviteter.ikon_1;
-                klon.querySelector(".ikon_2").src = medieurl + aktiviteter.ikon_2;
-                //                klon.querySelector(".ikon_3").src = medieurl + aktiviteter.ikon_3;
-                main.appendChild(klon);
+
+        function visAktiviteter() {
+            //            console.log(json);
+            const main = document.querySelector("#liste");
+            const template = document.querySelector("template").content;
+            main.textContent = "";
+            aktivitet.forEach(aktiviteter => {
+                console.log("Aktivitet", aktiviteter.landsdel);
+
+                if (filter == aktiviteter.landsdel || filter == "alle") {
+                    const klon = template.cloneNode(true);
+                    klon.querySelector(".billede").src = medieurl + aktiviteter.billede;
+                    klon.querySelector(".navn").textContent = aktiviteter.navn;
+                    klon.querySelector(".landsdel").textContent = aktiviteter.landsdel;
+                    klon.querySelector(".ikon_1").src = medieurl + aktiviteter.ikon_1;
+                    klon.querySelector(".ikon_2").src = medieurl + aktiviteter.ikon_2;
+                    //                klon.querySelector(".ikon_3").src = medieurl + aktiviteter.ikon_3;
+                    main.appendChild(klon);
+                }
 
             })
         }
