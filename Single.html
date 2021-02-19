@@ -1,13 +1,97 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Detalje side</title>
     <link rel="stylesheet" href="">
+
+    <style>
+        img {
+            max-width: 100%;
+        }
+
+        .ikon {
+            max-height: 3%;
+        }
+
+        @media screen and (min-width:768px) {
+            .container {
+                display: grid;
+                grid-auto-flow: dense;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: 1fr 2fr 1fr;
+                grid-gap: 20px;
+            }
+
+            header {
+                grid-column: 1/5;
+                background-color: coral;
+                height: 30vw;
+            }
+
+            .article1 {
+                grid-row: 2/4;
+                background-color: #d750ff;
+                height: 30vw;
+            }
+
+            .article2 {
+                grid-column: 3/5;
+                background-color: #aa3659;
+                height: 30vw;
+            }
+
+            .article3 {
+                grid-column: 3/5;
+                background-color: #61939f;
+                height: 30vw;
+            }
+
+            footer {
+                grid-column: 1/4;
+                background-color: #475517;
+                height: 30vw;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
-    <script src=""></script>
-</body>
-</html>
+
+    <div class="container">
+
+        <header>
+            <img src="" alt="">
+            <button><a href="index.html">Tilbage til forside</a></button>
+        </header>
+
+        <template>
+
+            <article class="article1">
+                <img src="" alt="" class="billede">
+                <h2 class="navn"></h2>
+                <p class="landsdel"></p>
+                <div class="ikon">
+                    <img src="" alt="" class="ikon_1">
+                    <img src="" alt="" class="ikon_2">
+                    <img src="" alt="" class="ikon_3">
+                </div>
+            </article>
+
+            <article class="article2">
+                <p class="beskrivelse"></p>
+            </article>
+
+            <article class="article3">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d34731.42028230957!2d8.460266180400955!3d57.039323164634595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4649bc2af0a8b8af%3A0x5177e617f0188909!2s7700%20Klitm%C3%B8ller!5e0!3m2!1sen!2sdk!4v1613728388418!5m2!1sen!2sdk" width="800" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </article>
+
+        </template>
+
+    </div>
+
+    <script></script>
+</body></html>
