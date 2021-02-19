@@ -37,14 +37,16 @@
         .valgt {
             background-color: blue;
         }
-
+        header{
+            max-width: 18vw;
+        }
 
     </style>
 </head>
 
 <body>
     <header>
-     <h1>TEST</h1>
+     <img src="grafik/logo_turkis.svg" alt="logo" class="logo">
     </header>
     <nav>
         <button data-landsdel="alle" class="valgt">Alle</button>
@@ -86,7 +88,12 @@
         function start() {
             const filterknapper = document.querySelectorAll("nav button");
             filterknapper.forEach(knap => knap.addEventListener("click", filterAktiviteter));
+            document.querySelector(".logo").addEventListener("click", tilForsiden);
             hentData();
+        }
+
+        function tilForsiden(){
+            location.href = "index.html";
         }
 
         function filterAktiviteter() {
