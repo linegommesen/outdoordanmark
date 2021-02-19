@@ -16,44 +16,36 @@
             max-height: 3%;
         }
 
+        .logo {
+            width: 30vh;
+        }
+
         @media screen and (min-width:768px) {
             .container {
                 display: grid;
-                grid-auto-flow: dense;
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: 1fr 2fr 1fr;
+                grid-template-columns: 1fr 2fr;
+                grid-template-rows: 1fr 1fr 1fr;
                 grid-gap: 20px;
                 padding: 1rem;
             }
 
-            header {
-                grid-column: 1/5;
-                background-color: coral;
-                height: 20vw;
-            }
-
             .article1 {
-                grid-row: 2/4;
-                background-color: #d750ff;
-                height: 40vw;
+                grid-row: 1/4;
             }
 
             .article2 {
-                grid-column: 2/5;
-                background-color: #aa3659;
-                height: 20vw;
+                grid-column: 2/3;
             }
 
             .article3 {
-                grid-column: 3/5;
-                background-color: #61939f;
-                height: 20vw;
+                grid-column: 2/3;
+                grid-row: 2/4;
             }
 
             footer {
                 grid-row: 4/5;
                 background-color: #475517;
-                height: 20vw;
+                height: 10vw;
             }
         }
     </style>
@@ -62,12 +54,13 @@
 
 <body>
 
-    <div class="container">
+    <header>
+        <button>Tilbage</button>
+        <img src="grafik/logo_turkis.svg" alt="" class="logo">
+    </header>
 
-        <header>
-            <img src="" alt="">
-            <button><a href="loop_level1.html">Tilbage til forside</a></button>
-        </header>
+
+    <div class="container">
 
         <article class="article1">
             <img src="" alt="" class="billede">
@@ -85,36 +78,46 @@
         </article>
 
         <article class="article3">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d34731.42028230957!2d8.460266180400955!3d57.039323164634595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4649bc2af0a8b8af%3A0x5177e617f0188909!2s7700%20Klitm%C3%B8ller!5e0!3m2!1sen!2sdk!4v1613728388418!5m2!1sen!2sdk" width="800" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2272206.2722036615!2d9.300217096337805!3d56.2097979502503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b27b6ee945ffb%3A0x528743d0c3e092cd!2sDanmark!5e0!3m2!1sda!2sdk!4v1613739908336!5m2!1sda!2sdk" width="912" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </article>
 
     </div>
+
+    <footer>Footer</footer>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get("id");
 
-        const url = "https://outdoordanmark-4fb1.restdb.io/rest/aktiviteter";
-
         const medieurl = "https://outdoordanmark-4fb1.restdb.io/media/";
 
         const options = {
-            headers: {
-                'x-apikey': "602f7b505ad3610fb5bb63a2"
-            }
+            'x-apikey': "602f7b505ad3610fb5bb63a2"
         };
         console.log("ID", id);
         document.addEventListener("DOMContentLoaded", hentData);
 
         async function hentData() {
             console.log("loadData");
-            const hentData = await fetch(`https://outdoordanmark-4fb1.restdb.io/media/${id}`, {
-                headers: myHeaders
+            const hentData = await fetch(`https://outdoordanmark-4fb1.restdb.io/rest/aktiviteter/${id}`, {
+                headers: options
             });
-            aktivitet = await resspons.json();
-            console.log("Aktivitet", aktivitet);
-            //kald functionen visPersoner
+            aktivitet = await hentData.json();
+            // console.log("Aktivitet", aktivitet);
             visAktiviteter(aktivitet);
+        };
+
+        function visAktiviteter(aktivitet) {
+            document.querySelector(".billede").src = medieurl + aktivitet.billede;
+            document.querySelector(".navn").textContent = aktivitet.navn;
+            document.querySelector(".landsdel").textContent = aktivitet.landsdel;
+            document.querySelector(".ikon_1").src = medieurl + aktivitet.ikon_1;
+            document.querySelector(".ikon_2").src = medieurl + aktivitet.ikon_2;
+            document.querySelector("button").addEventListener("click", tilbageTilLoop);
+        };
+
+        function tilbageTilLoop() {
+            history.back();
         };
     </script>
 </body></html>
