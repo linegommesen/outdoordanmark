@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,6 +37,7 @@
         .valgt {
             background-color: blue;
         }
+
     </style>
 </head>
 
@@ -88,8 +90,8 @@
 
         function filterAktiviteter() {
             filter = this.dataset.landsdel;
-//            document.querySelector(".valgt").classList.remove("valgt");
-//            this.classList.add("valgt");
+            //            document.querySelector(".valgt").classList.remove("valgt");
+            //            this.classList.add("valgt");
             visAktiviteter();
         }
 
@@ -117,11 +119,19 @@
                     klon.querySelector(".ikon_1").src = medieurl + aktiviteter.ikon_1;
                     klon.querySelector(".ikon_2").src = medieurl + aktiviteter.ikon_2;
                     //                klon.querySelector(".ikon_3").src = medieurl + aktiviteter.ikon_3;
+                    klon.querySelector(".aktiviteter").addEventListener("click", () => visDetaljer(aktiviteter));
                     main.appendChild(klon);
                 }
 
             })
         }
         hentData();
+
+        function visDetaljer(single) {
+            location.href = `single.html?id=${single._id}`;
+        }
+
     </script>
-</body></html>
+</body>
+
+</html>
