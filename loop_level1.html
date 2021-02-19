@@ -4,7 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Outdoor Danmark</title>
-    <link rel="stylesheet" href="">
+    <style>
+        img{
+            max-width: 100%;
+        }
+       main{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 10px;
+        }
+        .ikon{
+            max-height: 3%;
+        }
+        article{
+            height: auto;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -19,20 +35,51 @@
         <button data-kategori="Bornholm">Bornholm</button>
     </nav>
 
-    <section id="liste"></section>
+    <main id="liste"></main>
     <template>
         <article class="aktiviteter">
             <img src="" alt="" class="billede">
             <h2 class="navn"></h2>
             <p class="landsdel"></p>
-            <img src="" alt="" class="ikon_1">
-            <img src="" alt="" class="ikon_2">
-            <img src="" alt="" class="ikon_3">
+            <img src="" alt="" class="ikon_1 ikon">
+            <img src="" alt="" class="ikon_2 ikon">
+            <img src="" alt="" class="ikon_3 ikon">
             <p class="beskrivelse"></p>
-
-
         </article>
     </template>
- <script></script>
-    </body>
-</html>
+
+    <script>
+        const url = "https://outdoordanmark-4fb1.restdb.io/rest/aktiviteter";
+
+        const medieurl = "https://outdoordanmark-4fb1.restdb.io/media/";
+
+        const options = {
+            headers: {
+                'x-apikey': "602f7b505ad3610fb5bb63a2"
+            }
+        }
+        async function hentData() {
+            const resspons = await fetch(url, options);
+            const json = await resspons.json();
+            vis(json);
+        }
+        const main = document.querySelector("#liste");
+        const template = document.querySelector("template").content;
+
+        function vis(json) {
+            console.log(json);
+            json.forEach(aktiviteter => {
+                const klon = template.cloneNode(true);
+                klon.querySelector(".billede").src = medieurl + aktiviteter.billede;
+                klon.querySelector(".navn").textContent = aktiviteter.navn;
+                klon.querySelector(".landsdel").textContent = aktiviteter.landsdel;
+                klon.querySelector(".ikon_1").src = medieurl + aktiviteter.ikon_1;
+                klon.querySelector(".ikon_2").src = medieurl + aktiviteter.ikon_2;
+                klon.querySelector(".ikon_3").src = medieurl + aktiviteter.ikon_3;
+                main.appendChild(klon);
+
+            })
+        }
+        hentData();
+    </script>
+</body></html>
