@@ -4,16 +4,76 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outdoor Danmark</title>
+
     <link rel="stylesheet" href="">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        @media screen and (min-width:768px) {
+
+            header {
+                display: grid;
+                width: 100vw;
+                grid-template-columns: 1fr;
+                background-color: aqua;
+            }
+
+            #splash,
+            #logo {
+                grid-area: 1 / 1;
+            }
+
+            #logo {
+                height: 50px;
+                width: 150px;
+                background-color: orange;
+                place-self: start center;
+                margin 10px;
+            }
+
+            main {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                grid-template-rows: 1fr 3fr;
+                grid-column-gap: 20px;
+            }
+
+            h1 {
+                grid-column: 1/4;
+                place-self: center center;
+            }
+            button {
+
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header></header>
+    <header>
+        <img id="splash" src="images/DSC02929.JPG" alt="Splash billede">
+        <img id="logo" src="" alt="Logo for Outdoor Danmark">
+    </header>
+
     <main>
+        <h1>Er du nybegynder eller friluftsentutiast</h1>
+        <button id="l1" class="level">Level 1</button>
+        <button id="l2" class="level">Level 2</button>
+        <button id="l3" class="level">Level 3</button>
 
     </main>
 
+    <footer>
+        <p>Her er en footer</p>
+    </footer>
+
     <script src=""></script>
-</body>
-</html>
+</body></html>
