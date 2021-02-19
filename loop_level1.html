@@ -5,21 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Outdoor Danmark</title>
     <style>
-        img{
-            max-width: 100%;
+        * {
+            box-sizing: border-box;
         }
-       main{
+
+        img {
+            width: 100%;
+        }
+
+        main {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             grid-gap: 10px;
         }
+
+        /*
         .ikon{
-            max-height: 3%;
+            max-height: 5%;
         }
-        article{
-            height: auto;
+*/
+        article {
+            /*            height: auto;*/
+            background-color: aqua;
+            /*            max-height: 70vh;*/
         }
 
+        .ikon {
+
+            max-width: 10%;
+            margin: 5px;
+        }
+
+        .ikoner {
+            display: flex;
+        }
     </style>
 </head>
 
@@ -41,9 +60,11 @@
             <img src="" alt="" class="billede">
             <h2 class="navn"></h2>
             <p class="landsdel"></p>
-            <img src="" alt="" class="ikon_1 ikon">
-            <img src="" alt="" class="ikon_2 ikon">
-            <img src="" alt="" class="ikon_3 ikon">
+            <div class="ikoner">
+                <img src="" alt="" class="ikon_1 ikon">
+                <img src="" alt="" class="ikon_2 ikon">
+            </div>
+            <!--            <img src="" alt="" class="ikon_3 ikon">-->
             <p class="beskrivelse"></p>
         </article>
     </template>
@@ -75,7 +96,7 @@
                 klon.querySelector(".landsdel").textContent = aktiviteter.landsdel;
                 klon.querySelector(".ikon_1").src = medieurl + aktiviteter.ikon_1;
                 klon.querySelector(".ikon_2").src = medieurl + aktiviteter.ikon_2;
-                klon.querySelector(".ikon_3").src = medieurl + aktiviteter.ikon_3;
+                //                klon.querySelector(".ikon_3").src = medieurl + aktiviteter.ikon_3;
                 main.appendChild(klon);
 
             })
