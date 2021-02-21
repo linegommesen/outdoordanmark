@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outdoor Danmark</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="">
 
@@ -16,8 +20,50 @@
             max-width: 100%;
         }
 
-        h1 {
+        header {
+            display: grid;
+            width: 100vw;
+            grid-template-columns: 1fr;
+            background-color: aqua;
+        }
+
+        #splash,
+        #logo {
+            grid-area: 1 / 1;
+        }
+
+        #logo {
+            width: 300px;
+            place-self: start center;
+            margin 10px;
+        }
+
+        .levels {
+            opacity: 1;
+            display: block;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        }
+
+        .container:hover .image {
+            opacity: 0.3;
+        }
+
+        .container:hover .middle {
+            opacity: 1;
+        }
+
+        .text {
+            color: white;
             font-size: 2rem;
+            font-family: 'Fredericka the Great', cursive;
             text-align: center;
         }
 
@@ -29,53 +75,17 @@
         }
 
         h1 {
+            font-size: 2rem;
+            text-align: center;
+            font-family: 'Fredericka the Great', cursive;
+            color: black;
             grid-row: 1/2;
             place-self: center center;
         }
 
-        #b1,
-        #l1 {
-            grid-area: 1/1;
-            grid-row: 2/3;
-        }
-
-        #b2,
-        #l2 {
-            grid-area: 1/1;
-            grid-row: 3/4;
-        }
-
-        #b3,
-        #l3 {
-            grid-area: 1/1;
-            grid-row: 4/5;
-        }
-
-        h2 {
-            place-self: center center;
-            color: white;
-        }
-
         @media screen and (min-width:768px) {
 
-            header {
-                display: grid;
-                width: 100vw;
-                grid-template-columns: 1fr;
-                background-color: aqua;
-            }
 
-            #splash,
-            #logo {
-                grid-area: 1 / 1;
-            }
-
-            #logo {
-                height: 50px;
-                width: 150px;
-                place-self: start center;
-                margin 10px;
-            }
 
             main {
                 display: grid;
@@ -89,47 +99,56 @@
                 place-self: center center;
             }
 
-            #b1,
-            #l1 {
-                grid-column: 1/2;
-                grid-row: 2/3;
+            .container {
+                display: grid;
+                max-width: 100%;
             }
 
-            #b2,
-            #l2 {
-                grid-column: 2/3;
-                grid-row: 2/3;
+            .levels,
+            .middle {
+                grid-area: 1/1
             }
 
-            #b3,
-            #l3 {
-                grid-column: 3/4;
-                grid-row: 2/3;
+            .middle {
+                place-self: center center;
             }
 
 
         }
+
     </style>
 </head>
 
 <body>
 
     <header>
-        <img id="splash" src="images/DSC02929.JPG" alt="Splash billede">
+        <img id="splash" src="images/DSC03031.JPG" alt="Splash billede">
         <img id="logo" src="grafik/logo_turkis.svg" alt="Logo for Outdoor Danmark">
     </header>
 
     <main>
         <h1>Er du nybegynder eller friluftsentutiast</h1>
 
-        <img id="b1" class="levels" src="images/Hareskoven.jpg" alt="Billede til level 1">
-        <h2 id="l1">Level 1</h2>
+        <div class="container" id="1">
+            <img class="levels" src="images/Hareskoven.jpg" alt="Billede til level 1">
+            <div class="middle">
+                <div class="text">Level 1</div>
+            </div>
+        </div>
 
-        <img id="b2" class="levels" src="images/S%C3%B8.jpg" alt="Billede til level 2">
-        <h2 id="l2">Level 2</h2>
+        <div class="container" id="2">
+            <img class="levels" src="images/S%C3%B8.jpg" alt="Billede til level 2">
+            <div class="middle">
+                <div class="text">Level 2</div>
+            </div>
+        </div>
 
-        <img id="b3" class="levels" src="images/klitm%C3%B8ller.jpg" alt="Billede til level 3">
-        <h2 id="l3">Level 3</h2>
+        <div class="container" id="3">
+            <img class="levels" src="images/Hareskoven.jpg" alt="Billede til level 1">
+            <div class="middle">
+                <div class="text">Level 3</div>
+            </div>
+        </div>
 
     </main>
 
@@ -141,12 +160,17 @@
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
-            document.querySelector("#b1").addEventListener("click", newPage);
-        }
 
-        function newPage() {
-            location.href = `loop_level1.html`;
+            let containers = document.querySelectorAll(".container");
+            containers.forEach (container => {
+                console.log(container)
+                container.addEventListener("click",() => {
+                    location.href = `loop_level1.html?id=${container.id}`;
+                })
+            })
         }
 
     </script>
-</body></html>
+</body>
+
+</html>
