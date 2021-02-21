@@ -45,11 +45,22 @@
             backface-visibility: hidden;
         }
 
+        .container {
+                display: grid;
+                max-width: 100%;
+            }
+
+            .levels,
+            .middle {
+                grid-area: 1/1
+            }
+
         .middle {
             transition: .5s ease;
             opacity: 0;
             transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
+            place-self: center center;
         }
 
         .container:hover .image {
@@ -99,18 +110,10 @@
                 place-self: center center;
             }
 
-            .container {
-                display: grid;
-                max-width: 100%;
-            }
 
-            .levels,
-            .middle {
-                grid-area: 1/1
-            }
 
             .middle {
-                place-self: center center;
+
             }
 
 
