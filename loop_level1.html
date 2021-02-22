@@ -1,148 +1,371 @@
 <!DOCTYPE html>
-<html lang="">
 
-<head>
+<html lang=""> <head>
+
+
     <meta charset="utf-8">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Outdoor Danmark</title>
-    <style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+        <title> Outdoor Danmark</title>
+
+        <style>
+        /*        Farvekoder:
+
+        Midnight green: #104B5F
+
+        Light cyan: #DEFFF8
+
+        Orange red: #F19952
+
+        Black: #000305
+
+        White:
+
+        */
+
         * {
             box-sizing: border-box;
+
+            /* background-color: #104B5F;*/
+
+            /*             background-color: #DEFFF8;*/
+
         }
 
         img {
             width: 100%;
+
         }
 
         main {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-gap: 10px;
+
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+            grid-gap: 30px;
+
+            margin: 5rem;
+
         }
 
         article {
-            border: 2px solid black;
+
+            /*            border: 1px solid #104B5F;*/
+
+            border-radius: 15px;
+
+            /*            background-color: #3399ff;*/
+        }
+
+        article:hover {
+            transform: scale(1.1);
+
+            background-color: #DEFFF8;
+
+        }
+
+        .billede {
+            border-radius: 15px;
+
+            padding: 0.5rem;
+
+        }
+
+        .caption {
+            padding: 0rem 0.8rem 0.8rem 0.8rem;
+
+            margin: 0;
+
+            text-align: center;
+
+        }
+
+        .caption h2 {
+            margin: 0;
+
+            padding: 0;
+
+            /*            font-family: 'Fredericka the Great', cursive;*/
+
+            font-family: 'open sans';
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+            /*            color: #F19952;*/
+
+            color: #104B5F;
+
+        }
+
+        .caption p {
+
+            font-family: 'Roboto', sans-serif;
+
+            font-weight: bold;
+
+            color: #104B5F;
+
+            /*            color: #F19952;*/
         }
 
         .ikon {
-
             max-width: 10%;
+
             margin: 5px;
+
         }
 
         .ikoner {
+
             display: flex;
+
         }
 
         .valgt {
-            background-color: blue;
+
+            background-color: #defff8;
+
+            /*            border: 2px solid #F19952;*/
+
+            border: 2px solid #104b5f;
+
+            /*            color: #F19952;*/
+
+            color: #104b5f;
+
         }
 
-        <<<<<<< HEAD=======header {
+        .logo {
+
             max-width: 18vw;
+
         }
 
-        >>>>>>>origin/master
+        nav {
 
+            display: grid;
+
+            grid-template-columns: 1fr 2fr 1fr;
+
+        }
+
+        .buttons {
+
+            margin-top: 3rem;
+
+            align-self: center center;
+
+            grid-column: 2/3;
+
+        }
+
+        button {
+
+            width: 6rem;
+
+            height: 2rem;
+
+            border-radius: 8px;
+
+            border: 2px solid #104b5f;
+
+            /*            background-color:#104B5F; */
+
+            /*            background-color:#DEFFF8; */
+
+            background-color: white;
+
+            font-family: 'Fredericka the Great', cursive;
+
+            color: #104b5f;
+
+            /*            font-weight: bold;*/
+
+            /*            text-transform: uppercase;*/
+
+        }
     </style>
+
 </head>
 
 <body>
-    <header>
-        <img src="grafik/logo_turkis.svg" alt="logo" class="logo">
-    </header>
-    <nav>
-        <button data-landsdel="alle" class="valgt">Alle</button>
-        <button data-landsdel="Sjælland">Sjælland</button>
-        <button data-landsdel="Jylland">Jylland</button>
-        <button data-landsdel="Fyn">Fyn</button>
-        <button data-landsdel="Bornholm">Bornholm</button>
-    </nav>
 
-    <main id="liste"></main>
-    <template>
-        <article class="aktiviteter">
-            <img src="" alt="" class="billede">
-            <h2 class="navn"></h2>
-            <p class="landsdel"></p>
-            <div class="ikoner">
-                <img src="" alt="" class="ikon_1 ikon">
-                <img src="" alt="" class="ikon_2 ikon">
-            </div>
-            <!--            <img src="" alt="" class="ikon_3 ikon">-->
-            <p class="beskrivelse"></p>
-        </article>
-    </template>
+        <header>
 
-    <script>
+                <img src="grafik/logo_turkis.svg" alt="logo" class="logo">
+
+            </header>
+
+        <nav>
+
+               <div class="buttons">
+
+                    <button data-landsdel="alle" class="valgt">Alle</button>
+
+                    <button data-landsdel="Sjælland">Sjælland</button>
+
+                    <button data-landsdel="Jylland">Jylland</button>
+
+                    <button data-landsdel="Fyn">Fyn</button>
+
+                    <button data-landsdel="Bornholm">Bornholm</button>
+
+                    </div>
+
+            </nav>     <main id="liste"></main>
+
+        <template>
+
+                <article class="aktiviteter">
+
+                        <img src="" alt="" class="billede">             <div class="caption">
+
+                                <h2 class="navn"></h2>
+
+                                <p class="landsdel"></p>
+
+                                <div class="ikoner">
+
+                                        <img src="" alt="" class="ikon_1 ikon">
+
+                                        <img src="" alt="" class="ikon_2 ikon">
+
+                                    </div>
+
+
+                <!--            <img src="" alt="" class="ikon_3 ikon">-->
+
+                                <p class="beskrivelse"></p>
+
+                            </div>
+
+                    </article>
+
+            </template>     <script>
         const url = "https://outdoordanmark-4fb1.restdb.io/rest/aktiviteter";
-
         const medieurl = "https://outdoordanmark-4fb1.restdb.io/media/";
-
         const options = {
+
             headers: {
+
                 'x-apikey': "602f7b505ad3610fb5bb63a2"
+
             }
+
         }
+
         document.addEventListener("DOMContentLoaded", start);
+
         let aktivitet;
+
         let filter = "alle";
 
         function start() {
+
             const filterknapper = document.querySelectorAll("nav button");
+
             filterknapper.forEach(knap => knap.addEventListener("click", filterAktiviteter));
+
             document.querySelector(".logo").addEventListener("click", tilForsiden);
+
             hentData();
+
         }
 
         function tilForsiden() {
             location.href = "index.html";
+
         }
 
         function filterAktiviteter() {
+
             filter = this.dataset.landsdel;
-            //            document.querySelector(".valgt").classList.remove("valgt");
-            //            this.classList.add("valgt");
-            visAktiviteter();
-        }
 
+            document.querySelector(".valgt").classList.remove("valgt");
+
+            this.classList.add("valgt");
+
+            visAktiviteter();
+
+        }
         async function hentData() {
-            const resspons = await fetch(url, options);
-            aktivitet = await resspons.json();
-            console.log("Aktivitet", aktivitet);
-            visAktiviteter();
-        }
 
+            const resspons = await fetch(url, options);
+
+            aktivitet = await resspons.json();
+
+            console.log("Aktivitet", aktivitet);
+
+            visAktiviteter();
+
+        }
 
         function visAktiviteter() {
-            //            console.log(json);
+
+            //            console.log(json);
+
             const main = document.querySelector("#liste");
+
             const template = document.querySelector("template").content;
+
             main.textContent = "";
+
             aktivitet.forEach(aktiviteter => {
+
                 console.log("Aktivitet", aktiviteter.landsdel);
-
                 if (filter == aktiviteter.landsdel || filter == "alle") {
-                    const klon = template.cloneNode(true);
-                    klon.querySelector(".billede").src = medieurl + aktiviteter.billede;
-                    klon.querySelector(".navn").textContent = aktiviteter.navn;
-                    klon.querySelector(".landsdel").textContent = aktiviteter.landsdel;
-                    klon.querySelector(".ikon_1").src = medieurl + aktiviteter.ikon_1;
-                    klon.querySelector(".ikon_2").src = medieurl + aktiviteter.ikon_2;
-                    //                klon.querySelector(".ikon_3").src = medieurl + aktiviteter.ikon_3;
-                    klon.querySelector(".aktiviteter").addEventListener("click", () => visDetaljer(aktiviteter));
-                    main.appendChild(klon);
-                }
 
+                    const klon = template.cloneNode(true);
+
+                    klon.querySelector(".billede").src = medieurl + aktiviteter.billede;
+
+                    klon.querySelector(".navn").textContent = aktiviteter.navn;
+
+                    klon.querySelector(".landsdel").textContent = aktiviteter.landsdel;
+
+                    klon.querySelector(".ikon_1").src = medieurl + aktiviteter.ikon_1;
+
+                    klon.querySelector(".ikon_2").src = medieurl + aktiviteter.ikon_2;
+
+                    //                klon.querySelector(".ikon_3").src = medieurl + aktiviteter.ikon_3;
+
+                    klon.querySelector(".aktiviteter").addEventListener("click", () => visDetaljer(aktiviteter));
+
+                    main.appendChild(klon);
+
+                }
             })
+
         }
+
         hentData();
 
         function visDetaljer(single) {
+
             location.href = `single.html?id=${single._id}`;
+
         }
-
     </script>
-</body>
 
-</html>
+</body> </html>
+
