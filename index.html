@@ -153,9 +153,9 @@
 
                 <div id="logo"></div>
                 <img id="logo" src="grafik/logo_turkis.svg">
-                <button data-kategori="level3">Level 3</button>
-                <button data-kategori="level2">Level 2</button>
-                <button data-kategori="level1">Level 1</button>
+                <button id="3">Level 3</button>
+                <button id="2">Level 2</button>
+                <button id="1">Level 1</button>
             </div>
         </nav>
 
@@ -211,6 +211,17 @@
                 container.addEventListener("click", () => {
                     location.href = `loop_level1.html?id=${container.id}`;
                 })
+            })
+
+            let buttons = document.querySelectorAll("nav button");
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    location.href = `loop_level1.html?id=${button.id}`;
+                })
+            })
+
+            document.querySelector("#logo").addEventListener("click", () => {
+                location.href = `index.html`;
             })
         }
 
