@@ -25,10 +25,14 @@
 
         h1 {
             font-family: 'Karla', sans-serif;
+
+
         }
 
         h2 {
             font-family: 'Karla', sans-serif;
+            text-transform: uppercase;
+            font-size: 35px;
         }
 
         p {
@@ -55,38 +59,42 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr;
                 grid-template-rows: 1fr 1fr 1fr 1fr;
-                grid-gap: 10px;
-                padding: 3rem;
+                grid-gap: 15px;
+                margin: 3rem;
 
-                margin-right: 5em;
-                margin-left: 5em;
+                margin-right: 10em;
+                margin-left: 10em;
+            }
+
+            .container {
+                background-color: azure;
             }
 
             .article1 {
                 grid-row-start: 1;
                 grid-row-end: 2;
                 grid-column-start: 1;
-                grid-column-end: 2;
+                grid-column-end: 3;
             }
 
             .article2 {
                 grid-row-start: 2;
                 grid-row-end: 3;
                 grid-column-start: 1;
-                grid-column-end: 2;
+                grid-column-end: 3;
             }
 
             .article3 {
                 grid-row-start: 1;
                 grid-row-end: 2;
-                grid-column-start: 2;
+                grid-column-start: 3;
                 grid-column-end: 5;
             }
 
             .article4 {
                 grid-row-start: 2;
                 grid-row-end: 3;
-                grid-column-start: 2;
+                grid-column-start: 3;
                 grid-column-end: 5;
 
 
@@ -108,7 +116,9 @@
 
     <header>
         <button>Tilbage</button>
-        <img src="grafik/logo_turkis.svg" alt="" class="logo">
+        <a href="index.html">
+                <img src="grafik/logo_turkis.svg" alt="" class="logo">
+            </a>
     </header>
 
 
@@ -130,12 +140,11 @@
 
         <article class="article3">
             <p class="beskrivelse">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, ipsam nisi, explicabo velit, corrupti debitis dolorum nostrum, assumenda laborum doloremque eius! Possimus assumenda minus, inventore repellendus delectus quia aliquam dolores.
             </p>
         </article>
 
         <article class="article4">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2272206.2722036615!2d9.300217096337805!3d56.2097979502503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b27b6ee945ffb%3A0x528743d0c3e092cd!2sDanmark!5e0!3m2!1sda!2sdk!4v1613739908336!5m2!1sda!2sdk" width="850" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2272206.2722036615!2d9.300217096337805!3d56.2097979502503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b27b6ee945ffb%3A0x528743d0c3e092cd!2sDanmark!5e0!3m2!1sda!2sdk!4v1613739908336!5m2!1sda!2sdk" width="550" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </article>
 
     </div>
@@ -168,6 +177,7 @@
             document.querySelector(".billede").src = medieurl + aktivitet.billede;
             document.querySelector(".navn").textContent = aktivitet.navn;
             document.querySelector(".landsdel").textContent = aktivitet.landsdel;
+            document.querySelector(".beskrivelse").textContent = aktivitet.beskrivelse;
             document.querySelector(".ikon_1").src = medieurl + aktivitet.ikon_1;
             document.querySelector(".ikon_2").src = medieurl + aktivitet.ikon_2;
             document.querySelector("button").addEventListener("click", tilbageTilLoop);
