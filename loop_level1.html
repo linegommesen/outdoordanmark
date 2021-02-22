@@ -33,6 +33,42 @@
 /*             background-color: #DEFFF8;*/
         }
 
+        /* nav styling */
+        body {
+            margin-top: 0;
+        }
+
+        .btn-group {
+            position: fixed;
+            width: 100vw;
+            background-color: white;
+        }
+
+        .btn-group button {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.3rem;
+            border: none;
+            outline: none;
+            text-align: center;
+            display: inline-block;
+            background: none;
+            float: right;
+            margin: 10px;
+            margin-right: 40px;
+            padding: 10px;
+            border-radius: 20%;
+        }
+
+        .btn-group button:hover {
+            background-color: #defff8;
+        }
+
+        #logo {
+            width: 150px;
+            margin: 10px;
+        }
+        /* nav styling slut */
+
         img {
             width: 100%;
         }
@@ -144,7 +180,14 @@
 
 <body>
     <header>
-        <img src="grafik/logo_turkis.svg" alt="logo" class="logo">
+       <nav>
+            <div class="btn-group">
+                <img id="logo" src="grafik/logo_turkis.svg">
+                <button id="3">Level 3</button>
+                <button id="2">Level 2</button>
+                <button id="1">Level 1</button>
+            </div>
+        </nav>
     </header>
     <nav>
        <div class="buttons">
@@ -189,9 +232,23 @@
         let filter = "alle";
 
         function start() {
+
+            //nav
+            let buttons = document.querySelectorAll("nav button");
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    location.href = `loop_level1.html?id=${button.id}`;
+                })
+            })
+
+            document.querySelector("#logo").addEventListener("click", () => {
+                location.href = `index.html`;
+            })
+            //nav slut
+
             const filterknapper = document.querySelectorAll("nav button");
             filterknapper.forEach(knap => knap.addEventListener("click", filterAktiviteter));
-            document.querySelector(".logo").addEventListener("click", tilForsiden);
+
             hentData();
         }
 
