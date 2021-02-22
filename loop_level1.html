@@ -4,10 +4,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favikon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favikon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favikon/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title> Outdoor Danmark</title>
     <style>
+        /*        Farvekoder:
+        Midnight green: #104B5F
+        Light cyan: #DEFFF8
+        Orange red: #F19952
+        Black: #000305
+        White:
+        */
         * {
             box-sizing: border-box;
+            /* background-color: #104B5F;*/
+/*             background-color: #DEFFF8;*/
         }
 
         img {
@@ -16,12 +39,50 @@
 
         main {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 30px;
+            margin: 5rem;
         }
 
         article {
-            border: 2px solid black;
+            /*            border: 1px solid #104B5F;*/
+            border-radius: 15px;
+            /*            background-color: #3399ff;*/
+
+        }
+        article:hover{
+            transform: scale(1.1);
+            background-color: #DEFFF8;
+        }
+
+        .billede {
+            border-radius: 15px;
+            padding: 0.5rem;
+        }
+
+        .caption {
+            padding: 0rem 0.8rem 0.8rem 0.8rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        .caption h2 {
+            margin: 0;
+            padding: 0;
+            /*            font-family: 'Fredericka the Great', cursive;*/
+            font-family: 'open sans';
+            font-weight: bold;
+            text-transform: uppercase;
+/*            color: #F19952;*/
+            color: #104B5F;
+        }
+
+        .caption p {
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            color: #104B5F;
+/*            color: #F19952;*/
+
         }
 
         .ikon {
@@ -35,15 +96,49 @@
         }
 
         .valgt {
-            background-color: blue;
+            background-color: #defff8;
+/*            border: 2px solid #F19952;*/
+            border: 2px solid #104b5f;
+/*            color: #F19952;*/
+            color: #104b5f;
         }
 
-        <<<<<<< HEAD=======header {
+      header {
             max-width: 18vw;
         }
 
-        >>>>>>>origin/master
 
+        .logo {
+            max-width: 18vw;
+        }
+        nav{
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+        }
+        .buttons{
+            margin-top: 3rem;
+            align-self: center center;
+            grid-column: 2/3;
+        }
+        button{
+            width: 6rem;
+            height: 2rem;
+            border-radius: 8px;
+            border: 2px solid #104b5f;
+/*            background-color:#104B5F; */
+/*            background-color:#DEFFF8; */
+            background-color: white;
+            font-family: 'Fredericka the Great', cursive;
+            color: #104b5f;
+/*            font-weight: bold;*/
+/*            text-transform: uppercase;*/
+        }
+
+<<<<<<< HEAD
+*/
+
+=======
+>>>>>>> lines
     </style>
 </head>
 
@@ -52,25 +147,30 @@
         <img src="grafik/logo_turkis.svg" alt="logo" class="logo">
     </header>
     <nav>
+       <div class="buttons">
         <button data-landsdel="alle" class="valgt">Alle</button>
         <button data-landsdel="Sjælland">Sjælland</button>
         <button data-landsdel="Jylland">Jylland</button>
         <button data-landsdel="Fyn">Fyn</button>
         <button data-landsdel="Bornholm">Bornholm</button>
+        </div>
     </nav>
 
     <main id="liste"></main>
     <template>
         <article class="aktiviteter">
             <img src="" alt="" class="billede">
-            <h2 class="navn"></h2>
-            <p class="landsdel"></p>
-            <div class="ikoner">
-                <img src="" alt="" class="ikon_1 ikon">
-                <img src="" alt="" class="ikon_2 ikon">
+
+            <div class="caption">
+                <h2 class="navn"></h2>
+                <p class="landsdel"></p>
+                <div class="ikoner">
+                    <img src="" alt="" class="ikon_1 ikon">
+                    <img src="" alt="" class="ikon_2 ikon">
+                </div>
+                <!--            <img src="" alt="" class="ikon_3 ikon">-->
+                <p class="beskrivelse"></p>
             </div>
-            <!--            <img src="" alt="" class="ikon_3 ikon">-->
-            <p class="beskrivelse"></p>
         </article>
     </template>
 
@@ -101,8 +201,8 @@
 
         function filterAktiviteter() {
             filter = this.dataset.landsdel;
-            //            document.querySelector(".valgt").classList.remove("valgt");
-            //            this.classList.add("valgt");
+            document.querySelector(".valgt").classList.remove("valgt");
+            this.classList.add("valgt");
             visAktiviteter();
         }
 

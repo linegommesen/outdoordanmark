@@ -9,6 +9,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="favikon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favikon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favikon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
     <link rel="stylesheet" href="">
 
     <style>
@@ -16,27 +24,44 @@
             box-sizing: border-box;
         }
 
+        body {
+            margin-top: 0;
+        }
+
         img {
             max-width: 100%;
         }
 
-        header {
-            display: grid;
+        .btn-group {
+            position: fixed;
             width: 100vw;
-            grid-template-columns: 1fr;
-            background-color: aqua;
+            background-color: white;
         }
 
-        #splash,
-        #logo {
-            grid-area: 1 / 1;
+        .btn-group button {
+            font-family: open sans;
+            border: none;
+            outline: none;
+            text-align: center;
+            display: inline-block;
+            background: none;
+            float: right;
+            margin: 10px;
+            margin-right: 40px;
         }
 
         #logo {
-            width: 300px;
-            place-self: start center;
-            margin 10px;
+            width: 100px;
+            margin: 10px;
         }
+
+        .mySlides {
+            display: none;
+            object-fit: cover;
+            width: 100vw;
+            height: 85vh;
+        }
+
 
         .levels {
             opacity: 1;
@@ -46,14 +71,14 @@
         }
 
         .container {
-                display: grid;
-                max-width: 100%;
-            }
+            display: grid;
+            max-width: 100%;
+        }
 
-            .levels,
-            .middle {
-                grid-area: 1/1
-            }
+        .levels,
+        .middle {
+            grid-area: 1/1
+        }
 
         .middle {
             transition: .5s ease;
@@ -85,6 +110,10 @@
             grid-row-gap: 20px;
         }
 
+        main img {
+            border-radius: 5%;
+        }
+
         h1 {
             font-size: 2rem;
             text-align: center;
@@ -111,22 +140,30 @@
             }
 
 
-
-            .middle {
-
-            }
-
-
         }
-
     </style>
 </head>
 
 <body>
 
     <header>
-        <img id="splash" src="images/DSC03031.JPG" alt="Splash billede">
-        <img id="logo" src="grafik/logo_turkis.svg" alt="Logo for Outdoor Danmark">
+
+        <nav>
+            <div class="btn-group">
+
+                <div id="logo"></div>
+                <img id="logo" src="grafik/logo_turkis.svg">
+                <button id="3">Level 3</button>
+                <button id="2">Level 2</button>
+                <button id="1">Level 1</button>
+            </div>
+        </nav>
+
+        <div class="slide-content">
+            <img class="mySlides" src="images/DSC01027.JPG">
+            <img class="mySlides" src="images/DSC01423.JPG">
+            <img class="mySlides" src="images/DSC02929.JPG">
+        </div>
     </header>
 
     <main>
@@ -160,20 +197,47 @@
     </footer>
 
     <script>
+        let myIndex = 0;
+
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
 
+            carousel();
+
             let containers = document.querySelectorAll(".container");
-            containers.forEach (container => {
+            containers.forEach(container => {
                 console.log(container)
-                container.addEventListener("click",() => {
+                container.addEventListener("click", () => {
                     location.href = `loop_level1.html?id=${container.id}`;
                 })
             })
+
+            let buttons = document.querySelectorAll("nav button");
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    location.href = `loop_level1.html?id=${button.id}`;
+                })
+            })
+
+            document.querySelector("#logo").addEventListener("click", () => {
+                location.href = `index.html`;
+            })
         }
 
+        function carousel() {
+            let i;
+            let x = document.querySelectorAll(".mySlides");
+            console.log(x)
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) {
+                myIndex = 1
+            }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 5000); // Skift billede efter 2 sec
+        }
     </script>
-</body>
-
-</html>
+</body></html>
