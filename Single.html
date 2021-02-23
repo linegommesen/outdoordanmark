@@ -19,9 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            overflow-x: hidden;
-        }
 
         h1 {
             font-family: 'Karla', sans-serif;
@@ -118,8 +115,8 @@
     <header>
         <button>Tilbage</button>
         <a href="index.html">
-                <img src="grafik/logo_turkis.svg" alt="" class="logo">
-            </a>
+            <img src="grafik/logo_turkis.svg" alt="" class="logo">
+        </a>
     </header>
 
 
@@ -145,7 +142,7 @@
         </article>
 
         <article class="kort">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2272206.2722036615!2d9.300217096337805!3d56.2097979502503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b27b6ee945ffb%3A0x528743d0c3e092cd!2sDanmark!5e0!3m2!1sda!2sdk!4v1613739908336!5m2!1sda!2sdk" width="550" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <div id="kort" style="height: 100%; width: 100%"></div>
         </article>
 
     </div>
@@ -164,6 +161,31 @@
         console.log("ID", id);
         document.addEventListener("DOMContentLoaded", hentData);
 
+        let map;
+
+        function visKort(aktivitet) {
+
+            // TEST LOCATION ///////
+            const sted = {
+                lat: 55.759910,
+                lng: 12.374659
+            };
+            aktivitet.location = sted;
+            ////////////////////////
+
+            console.log(aktivitet.location)
+            map = new google.maps.Map(document.getElementById('kort'), {
+                center: aktivitet.location,
+                zoom: 15,
+            });
+
+            new google.maps.Marker({
+                position: aktivitet.location,
+                map,
+                title: aktivitet.navn,
+            });
+        }
+
         async function hentData() {
             console.log("loadData");
             const hentData = await fetch(`https://outdoordanmark-4fb1.restdb.io/rest/aktiviteter/${id}`, {
@@ -172,6 +194,7 @@
             aktivitet = await hentData.json();
             // console.log("Aktivitet", aktivitet);
             visAktiviteter(aktivitet);
+            visKort(aktivitet);
         };
 
         function visAktiviteter(aktivitet) {
@@ -189,6 +212,8 @@
         };
 
     </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOCW0JedTzZhT9whWzIpPGmDexOQBONgg" async></script>
 </body>
 
 </html>
