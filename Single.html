@@ -16,9 +16,91 @@
     <meta name="theme-color" content="#ffffff">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <style>
+        /* nav Styling */
+        #top-menu {
+            position: fixed;
+            width: 100vw;
+            background-color: white;
+        }
+
+        .menu-btn-group {
+            float: right;
+        }
+
+        .menu-btn-group button {
+            font-family: 'Roboto', sans-serif;
+            /*            font-weight: bold;*/
+            color: #104B5F;
+            font-size: 1.3rem;
+            border: none;
+            outline: none;
+            text-align: center;
+            background: none;
+            margin: 10px;
+            margin-right: 40px;
+            padding: 10px;
+            border-radius: 15px;
+            float: right;
+        }
+
+        .menu-btn-group button:hover {
+            background-color: #defff8;
+        }
+
+        #menu-collapse {
+            display: none;
+            float: right;
+        }
+
+        #menu-collapse button {
+            border: none;
+            outline: none;
+            background: none;
+            margin: 10px;
+            margin-right: 40px;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        #logo {
+            width: 150px;
+            margin: 10px;
+        }
+
+        @media screen and (max-width:768px) {
+            #menu-collapse {
+                display: block;
+            }
+
+            .menu-btn-group {
+                display: none;
+                float: right;
+            }
+
+            .menu-btn-group button {
+                width: 100vw;
+                float: right;
+                margin: 5px;
+            }
+        }
+
+        .menu-btn-group button:hover {
+            background-color: white;
+        }
+
+        /* nav styling slut */
+
+
         /*        footer styling*/
         .footer_tekst {
             height: 19rem;
@@ -66,6 +148,9 @@
             width: 100%;
         }
 
+        body {
+            margin-top: 0;
+        }
 
         .ikon {
             width: 30%;
@@ -77,7 +162,7 @@
             width: 30vh;
         }
 
-        button {
+        #btn-back {
             width: 6rem;
             height: 2rem;
             border-radius: 8px;
@@ -182,10 +267,22 @@
 <body>
 
     <header>
-        <button>Tilbage</button>
-        <a href="index.html">
-            <img src="grafik/logo_turkis.svg" alt="" class="logo">
-        </a>
+        <nav id="#top-menu">
+
+                <img id="logo" src="grafik/logo_turkis.svg">
+
+            <div id="menu-collapse">
+                <button><i class="material-icons">menu</i></button>
+            </div>
+
+            <div class="menu-btn-group">
+                <button id="3">Friluftsentusiast</button>
+                <button id="2">Naturelsker</button>
+                <button id="1">Nybegynder</button>
+            </div>
+        </nav>
+
+        <button id="btn-back">Tilbage</button>
     </header>
 
 
@@ -246,6 +343,27 @@
 
         async function hentData() {
             console.log("loadData");
+
+            document.querySelector("#menu-collapse button").addEventListener("click", () => {
+                let buttonGroup = document.querySelector(".menu-btn-group");
+                if (buttonGroup.style.display === "") {
+                    buttonGroup.style.display = "block";
+                } else {
+                    buttonGroup.style.display = "";
+                }
+            })
+
+            let buttons = document.querySelectorAll(".menu-btn-group button");
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    location.href = `loop_level1.html?id=${button.id}`;
+                })
+            })
+
+            document.querySelector("#logo").addEventListener("click", () => {
+                location.href = `index.html`;
+            })
+
             const hentData = await fetch(`https://outdoordanmark-4fb1.restdb.io/rest/aktiviteter/${id}`, {
                 headers: options
             });
@@ -260,7 +378,7 @@
             document.querySelector(".navn").textContent = aktivitet.navn;
             document.querySelector(".landsdel").textContent = aktivitet.landsdel;
             document.querySelector(".beskrivelse").textContent = aktivitet.beskrivelse;
-            document.querySelector("button").addEventListener("click", tilbageTilLoop);
+            document.querySelector("#btn-back").addEventListener("click", tilbageTilLoop);
         };
 
         function tilbageTilLoop() {
