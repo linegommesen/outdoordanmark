@@ -50,6 +50,8 @@
 
         .btn-group button {
             font-family: 'Roboto', sans-serif;
+/*            font-weight: bold;*/
+            color: #104B5F;
             font-size: 1.3rem;
             border: none;
             outline: none;
@@ -60,7 +62,7 @@
             margin: 10px;
             margin-right: 40px;
             padding: 10px;
-            border-radius: 20%;
+            border-radius: 15px;
         }
 
         .btn-group button:hover {
@@ -117,14 +119,20 @@
 */
         .container:hover{
             transform: scale(1.05);
+/*            color: rgba(0, 0, 0, 0.4);*/
+        }
+         .overlay:hover{
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
         .text {
-            color: white;
-            font-size: 2rem;
+            color: #DEFFF8;
+            font-size: 1.5rem;
             font-family: 'Open Sans', sans-serif;
             font-weight: bolder;
             text-transform: uppercase;
+/*            font-family: 'Fredericka the Great', cursive;*/
+/*            font-weight: bold;*/
             text-align: center;
         }
 
@@ -145,6 +153,7 @@
             font-family: 'Open Sans', sans-serif;
             font-weight: bolder;
             text-transform: uppercase;
+/*            font-family: 'Fredericka the Great', cursive;*/
             color: #104B5F;
             grid-row: 1/2;
             place-self: center center;
@@ -179,9 +188,9 @@
             <div class="btn-group">
 
                 <img id="logo" src="grafik/logo_turkis.svg">
-                <button id="3">Level 3</button>
-                <button id="2">Level 2</button>
-                <button id="1">Level 1</button>
+                <button id="3">Friluftsentusiast</button>
+                <button id="2">Naturelsker</button>
+                <button id="1">Nybegynder</button>
             </div>
         </nav>
 
@@ -196,16 +205,18 @@
         <h1>Er du nybegynder eller friluftsentutiast?</h1>
 
         <div class="container" id="1">
+
             <img class="levels" src="images/Hareskoven.jpg" alt="Billede til level 1">
             <div class="middle">
                 <div class="text">Nybegynder</div>
             </div>
+             <div class="overlay"></div>
         </div>
 
         <div class="container" id="2">
             <img class="levels" src="images/S%C3%B8.jpg" alt="Billede til level 2">
             <div class="middle">
-                <div class="text">Level 2</div>
+                <div class="text">Naturelsker</div>
             </div>
         </div>
 
