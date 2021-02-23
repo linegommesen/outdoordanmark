@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="favikon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favikon/favicon-32x32.png">
@@ -21,6 +23,13 @@
     <link rel="stylesheet" href="">
 
     <style>
+         /*        Farvekoder:
+        Midnight green: #104B5F
+        Light cyan: #DEFFF8
+        Orange red: #F19952
+        Black: #000305
+        White:
+        */
         * {
             box-sizing: border-box;
         }
@@ -81,6 +90,7 @@
         .container {
             display: grid;
             max-width: 100%;
+            margin: 2rem;
         }
 
         .levels,
@@ -89,13 +99,14 @@
         }
 
         .middle {
-            transition: .5s ease;
-            opacity: 0;
-            transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
+/*            transition: .5s ease;*/
+            opacity: 1;
+            transform: translate(0%, 0%);
+/*            -ms-transform: translate(-50%, -50%);*/
             place-self: center center;
         }
 
+/*
         .container:hover .image {
             opacity: 0.3;
         }
@@ -103,11 +114,17 @@
         .container:hover .middle {
             opacity: 1;
         }
+*/
+        .container:hover{
+            transform: scale(1.05);
+        }
 
         .text {
             color: white;
             font-size: 2rem;
-            font-family: 'Fredericka the Great', cursive;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bolder;
+            text-transform: uppercase;
             text-align: center;
         }
 
@@ -125,8 +142,10 @@
         h1 {
             font-size: 2rem;
             text-align: center;
-            font-family: 'Fredericka the Great', cursive;
-            color: black;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: #104B5F;
             grid-row: 1/2;
             place-self: center center;
         }
@@ -174,12 +193,12 @@
     </header>
 
     <main>
-        <h1>Er du nybegynder eller friluftsentutiast</h1>
+        <h1>Er du nybegynder eller friluftsentutiast?</h1>
 
         <div class="container" id="1">
             <img class="levels" src="images/Hareskoven.jpg" alt="Billede til level 1">
             <div class="middle">
-                <div class="text">Level 1</div>
+                <div class="text">Nybegynder</div>
             </div>
         </div>
 
@@ -193,7 +212,7 @@
         <div class="container" id="3">
             <img class="levels" src="images/Hareskoven.jpg" alt="Billede til level 1">
             <div class="middle">
-                <div class="text">Level 3</div>
+                <div class="text">Friluftsentusiast</div>
             </div>
         </div>
 
