@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" sizes="180x180" href="favikon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favikon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favikon/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#2d89ef">
-<meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="32x32" href="favikon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favikon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
- <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <title> Outdoor Danmark</title>
     <style>
         /*        Farvekoder:
@@ -29,16 +29,67 @@
         * {
             box-sizing: border-box;
             /* background-color: #104B5F;*/
-/*             background-color: #DEFFF8;*/
+            /*             background-color: #DEFFF8;*/
         }
 
         /* nav styling */
         body {
             margin-top: 0;
-
         }
 
-         .btn-group {
+        /*        footer styling*/
+        .footer_tekst {
+            height: 19rem;
+            background-color: #F29A52;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 100;
+            font-size: 0.9rem;
+            color: #104B5F;
+            text-align: center;
+        }
+
+        .bag_om_overskrift {
+            font-weight: 400;
+        }
+
+        /*footer styling på web version*/
+        @media screen and (min-width:768px) {
+
+            .footer_tekst {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr;
+                height: 15rem;
+            }
+
+            .kontakt {
+                grid-column: 2/3;
+                grid-row: 1/2;
+                padding: 1rem;
+                place-self: center center;
+                text-align: center;
+            }
+
+            .kontakt2 {
+                grid-column: 3/4;
+                grid-row: 1/2;
+                padding: 1rem;
+                place-self: center center;
+                text-align: center;
+            }
+
+            .bag_om {
+                grid-column: 1/2;
+                grid-row: 1/2;
+                padding-left: 4rem;
+                place-self: center center;
+                max-width: 30rem;
+            }
+        }
+
+        .btn-group {
             position: fixed;
             width: 100vw;
             background-color: white;
@@ -46,7 +97,7 @@
 
         .btn-group button {
             font-family: 'Roboto', sans-serif;
-/*            font-weight: bold;*/
+            /*            font-weight: bold;*/
             color: #104B5F;
             font-size: 1.3rem;
             border: none;
@@ -69,6 +120,7 @@
             width: 150px;
             margin: 10px;
         }
+
         /* nav styling slut */
 
         img {
@@ -88,13 +140,18 @@
             /*            background-color: #3399ff;*/
 
         }
-        article:hover{
+
+        article:hover {
             transform: scale(1.02);
+        }
+
+        article:hover {
+            transform: scale(1.1);
             background-color: #DEFFF8;
         }
 
         .billede {
-/*            border-radius: 15px;*/
+            /*            border-radius: 15px;*/
             padding: 0.5rem;
         }
 
@@ -107,12 +164,12 @@
         .caption h2 {
             margin: 0;
             padding: 0;
-/*             font-size: 2rem;*/
+            /*             font-size: 2rem;*/
             text-align: center;
             font-family: 'Open Sans', sans-serif;
             font-weight: bolder;
             text-transform: uppercase;
-/*            color: #F19952;*/
+            /*            color: #F19952;*/
             color: #104B5F;
         }
 
@@ -120,12 +177,10 @@
             font-family: 'Roboto', sans-serif;
             font-weight: bold;
             color: #104B5F;
-/*            color: #F19952;*/
-
+            /*            color: #F19952;*/
         }
 
         .ikon {
-
             max-width: 10%;
             margin: 5px;
         }
@@ -136,13 +191,13 @@
 
         .valgt {
             background-color: #defff8;
-/*            border: 2px solid #F19952;*/
+            /*            border: 2px solid #F19952;*/
             border: 2px solid #104b5f;
-/*            color: #F19952;*/
+            /*            color: #F19952;*/
             color: #104b5f;
         }
 
-      header {
+        header {
             max-width: 18vw;
         }
 
@@ -150,40 +205,37 @@
         .logo {
             max-width: 18vw;
         }
-        nav{
+
+        nav {
             display: grid;
             grid-template-columns: 1fr 2fr 1fr;
         }
-        .buttons{
+
+        .buttons {
             margin-top: 5rem;
             align-self: center center;
             grid-column: 2/3;
         }
-        button{
+
+        button {
             width: 6rem;
             height: 2rem;
             border-radius: 8px;
             border: 2px solid #104b5f;
-/*            background-color:#104B5F; */
-/*            background-color:#DEFFF8; */
+            /*            background-color:#104B5F; */
+            /*            background-color:#DEFFF8; */
             background-color: white;
             font-family: 'Fredericka the Great', cursive;
             color: #104b5f;
-/*            font-weight: bold;*/
-/*            text-transform: uppercase;*/
+            /*            font-weight: bold;*/
+            /*            text-transform: uppercase;*/
         }
-
-<<<<<<< HEAD
-*/
-
-=======
->>>>>>> lines
     </style>
 </head>
 
 <body>
     <header>
-       <nav id="menu">
+        <nav id="menu">
             <div class="btn-group">
                 <img id="logo" src="grafik/logo_turkis.svg">
                 <button id="3">Friluftsentusiast</button>
@@ -193,12 +245,12 @@
         </nav>
     </header>
     <nav>
-       <div class="buttons">
-        <button data-landsdel="alle" class="valgt" >Alle</button>
-        <button data-landsdel="Sjælland" >Sjælland</button>
-        <button data-landsdel="Jylland" >Jylland</button>
-        <button data-landsdel="Fyn" href="#">Fyn</button>
-        <button data-landsdel="Bornholm" >Bornholm</button>
+        <div class="buttons">
+            <button data-landsdel="alle" class="valgt">Alle</button>
+            <button data-landsdel="Sjælland">Sjælland</button>
+            <button data-landsdel="Jylland">Jylland</button>
+            <button data-landsdel="Fyn" href="#">Fyn</button>
+            <button data-landsdel="Bornholm">Bornholm</button>
         </div>
     </nav>
 
@@ -213,6 +265,7 @@
                 <div class="ikoner">
                     <img src="" alt="" class="ikon_1 ikon">
                     <img src="" alt="" class="ikon_2 ikon">
+                    <img src="" alt="" class="ikon_3 ikon">
                 </div>
                 <!--            <img src="" alt="" class="ikon_3 ikon">-->
                 <p class="beskrivelse"></p>
@@ -221,7 +274,7 @@
     </template>
 
     <script>
-         const urlParams = new URLSearchParams(window.location.search);
+        const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get("id");
         console.log(id);
 
@@ -305,8 +358,33 @@
         function visDetaljer(single) {
             location.href = `single.html?id=${single._id}`;
         }
-
     </script>
 </body>
 
-</html>
+<footer>
+
+    <div class="footer_tekst">
+        <div class="bag_om">
+            <h3 class="bag_om_overskrift">Bag om Outdoor Danmark</h3>
+            <p>Outdoor Danmark er en friluftslivs hjemmesiden til nybegynderen, natur-elskeren & friluftsentutiasten.</p>
+        </div>
+
+        <div class="kontakt">
+            <p>
+                outdoordanmark.dk
+                <br>+45 46 46 00 00
+                <br>outdoordanmark@gmail.com
+            </p>
+        </div>
+
+        <div class="kontakt2">
+            <p>
+                Lygten 16
+                <br>2400 København
+                <br>Danmark
+            </p>
+        </div>
+
+    </div>
+
+</footer></html>

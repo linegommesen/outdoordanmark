@@ -8,9 +8,9 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
- <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="favikon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favikon/favicon-32x32.png">
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="">
 
     <style>
-         /*        Farvekoder:
+        /*        Farvekoder:
         Midnight green: #104B5F
         Light cyan: #DEFFF8
         Orange red: #F19952
@@ -42,6 +42,62 @@
             max-width: 100%;
         }
 
+        /*        footer styling*/
+        footer {
+            padding-top: 8rem;
+        }
+
+        .footer_tekst {
+            height: 19rem;
+            background-color: #F29A52;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 100;
+            font-size: 0.9rem;
+            color: #104B5F;
+            text-align: center;
+        }
+
+        h3 {
+            font-weight: 400;
+        }
+
+        /*footer styling på web version*/
+        @media screen and (min-width:768px) {
+
+            .footer_tekst {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr;
+                height: 15rem;
+            }
+
+            .kontakt {
+                grid-column: 2/3;
+                grid-row: 1/2;
+                padding: 1rem;
+                place-self: center center;
+                text-align: center;
+            }
+
+            .kontakt2 {
+                grid-column: 3/4;
+                grid-row: 1/2;
+                padding: 1rem;
+                place-self: center center;
+                text-align: center;
+            }
+
+            .bag_om {
+                grid-column: 1/2;
+                grid-row: 1/2;
+                padding-left: 4rem;
+                place-self: center center;
+                max-width: 30rem;
+            }
+        }
+
         .btn-group {
             position: fixed;
             width: 100vw;
@@ -50,7 +106,7 @@
 
         .btn-group button {
             font-family: 'Roboto', sans-serif;
-/*            font-weight: bold;*/
+            /*            font-weight: bold;*/
             color: #104B5F;
             font-size: 1.3rem;
             border: none;
@@ -101,14 +157,14 @@
         }
 
         .middle {
-/*            transition: .5s ease;*/
+            /*            transition: .5s ease;*/
             opacity: 1;
             transform: translate(0%, 0%);
-/*            -ms-transform: translate(-50%, -50%);*/
+            /*            -ms-transform: translate(-50%, -50%);*/
             place-self: center center;
         }
 
-/*
+        /*
         .container:hover .image {
             opacity: 0.3;
         }
@@ -117,11 +173,12 @@
             opacity: 1;
         }
 */
-        .container:hover{
+        .container:hover {
             transform: scale(1.02);
-/*            color: rgba(0, 0, 0, 0.4);*/
+            /*            color: rgba(0, 0, 0, 0.4);*/
         }
-         .overlay:hover{
+
+        .overlay:hover {
             background-color: rgba(0, 0, 0, 0.4);
         }
 
@@ -131,8 +188,8 @@
             font-family: 'Open Sans', sans-serif;
             font-weight: bolder;
             text-transform: uppercase;
-/*            font-family: 'Fredericka the Great', cursive;*/
-/*            font-weight: bold;*/
+            /*            font-family: 'Fredericka the Great', cursive;*/
+            /*            font-weight: bold;*/
             text-align: center;
         }
 
@@ -144,7 +201,7 @@
         }
 
         main img {
-/*            border-radius: 15px;*/
+            /*            border-radius: 15px;*/
         }
 
         h1 {
@@ -153,7 +210,7 @@
             font-family: 'Open Sans', sans-serif;
             font-weight: bolder;
             text-transform: uppercase;
-/*            font-family: 'Fredericka the Great', cursive;*/
+            /*            font-family: 'Fredericka the Great', cursive;*/
             color: #104B5F;
             grid-row: 1/2;
             place-self: center center;
@@ -210,7 +267,7 @@
             <div class="middle">
                 <div class="text">Nybegynder</div>
             </div>
-             <div class="overlay"></div>
+            <div class="overlay"></div>
         </div>
 
         <div class="container" id="2">
@@ -228,10 +285,6 @@
         </div>
 
     </main>
-
-    <footer>
-        <p>Her er en footer</p>
-    </footer>
 
     <script>
         let myIndex = 0;
@@ -277,4 +330,31 @@
             setTimeout(carousel, 5000); // Skift billede efter 2 sec
         }
     </script>
-</body></html>
+</body>
+<footer>
+
+    <div class="footer_tekst">
+        <div class="bag_om">
+            <h3 class="bag_om_overskrift">Bag om Outdoor Danmark</h3>
+            <p>Outdoor Danmark er en friluftslivs hjemmesiden til nybegynderen, natur-elskeren & friluftsentutiasten.</p>
+        </div>
+
+        <div class="kontakt">
+            <p>
+                outdoordanmark.dk
+                <br>+45 46 46 00 00
+                <br>outdoordanmark@gmail.com
+            </p>
+        </div>
+
+        <div class="kontakt2">
+            <p>
+                Lygten 16
+                <br>2400 København
+                <br>Danmark
+            </p>
+        </div>
+
+    </div>
+
+</footer></html>

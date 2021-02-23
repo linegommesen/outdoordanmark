@@ -19,6 +19,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <style>
+        /*        footer styling*/
+        .footer_tekst {
+            height: 19rem;
+            background-color: #F29A52;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: #104B5F;
+            text-align: center;
+        }
+
+        .bag_om_overskrift {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 1.17em;
+        }
+
+        /*footer styling på web version*/
+        @media screen and (min-width:768px) {
+
+            .footer_tekst {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr;
+                height: 15rem;
+            }
+
+            .kontakt {
+                grid-column: 2/3;
+                grid-row: 1/2;
+                padding: 1rem;
+                place-self: center center;
+                text-align: center;
+            }
+
+            .kontakt2 {
+                grid-column: 3/4;
+                grid-row: 1/2;
+                padding: 1rem;
+                place-self: center center;
+                text-align: center;
+            }
+
+            .bag_om {
+                grid-column: 1/2;
+                grid-row: 1/2;
+                padding-left: 4rem;
+                place-self: center center;
+                max-width: 30rem;
+            }
+        }
+
         h1 {
             font-family: 'Karla', sans-serif;
             text-align: center;
@@ -43,7 +97,6 @@
 
         img {
             width: 100%;
-
             border-radius: 15px;
             padding: 0.5rem;
         }
@@ -71,7 +124,7 @@
 
         @media screen and (min-width:768px) {
             p {
-                font-size: 1.18vw;
+                /*                font-size: 1.18vw;*/
             }
 
             .container {
@@ -108,7 +161,7 @@
             }
 
             .beskrivelse {
-                padding-right: 15px;
+                padding: 1rem;
             }
 
             .info {
@@ -123,11 +176,6 @@
                 grid-row-end: 3;
                 grid-column-start: 1;
                 grid-column-end: 5;
-            }
-
-            footer {
-                background-color: #475517;
-                height: 10vw;
             }
         }
     </style>
@@ -161,8 +209,6 @@
         </article>
 
     </div>
-
-    <footer>Footer</footer>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -226,4 +272,31 @@
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOCW0JedTzZhT9whWzIpPGmDexOQBONgg" async></script>
-</body></html>
+</body>
+<footer>
+
+    <div class="footer_tekst">
+        <div class="bag_om">
+            <h3 class="bag_om_overskrift">Bag om Outdoor Danmark</h3>
+            <p>Outdoor Danmark er en friluftslivs hjemmesiden til nybegynderen, natur-elskeren & friluftsentutiasten.</p>
+        </div>
+
+        <div class="kontakt">
+            <p>
+                outdoordanmark.dk
+                <br>+45 46 46 00 00
+                <br>outdoordanmark@gmail.com
+            </p>
+        </div>
+
+        <div class="kontakt2">
+            <p>
+                Lygten 16
+                <br>2400 København
+                <br>Danmark
+            </p>
+        </div>
+
+    </div>
+
+</footer></html>
