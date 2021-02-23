@@ -34,7 +34,7 @@
             /*             background-color: #DEFFF8;*/
         }
 
-        /* nav styling */
+        /* nav top styling */
        #top-menu {
             position: fixed;
             width: 100vw;
@@ -107,7 +107,7 @@
         }
 
 
-        /* nav styling slut */
+        /* nav top styling slut */
 
         /*        footer styling*/
         .footer_tekst {
@@ -268,6 +268,13 @@
             /*            font-weight: bold;*/
             /*            text-transform: uppercase;*/
         }
+
+        @media screen and (max-width:768px) {
+            .buttons {
+                margin-top: 12rem;
+
+            }
+        }
     </style>
 </head>
 
@@ -359,7 +366,7 @@
             })
             //nav slut
 
-            const filterknapper = document.querySelectorAll("nav button");
+            const filterknapper = document.querySelectorAll(".buttons button");
             filterknapper.forEach(knap => knap.addEventListener("click", filterAktiviteter));
 
             hentData();
