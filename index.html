@@ -20,6 +20,8 @@
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="theme-color" content="#ffffff">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <link rel="stylesheet" href="">
 
     <style>
@@ -98,13 +100,17 @@
             }
         }
 
-        .btn-group {
+        #top-menu {
             position: fixed;
             width: 100vw;
             background-color: white;
         }
 
-        .btn-group button {
+        .menu-btn-group {
+            float: right;
+        }
+
+        .menu-btn-group button {
             font-family: 'Roboto', sans-serif;
             /*            font-weight: bold;*/
             color: #104B5F;
@@ -112,17 +118,31 @@
             border: none;
             outline: none;
             text-align: center;
-            display: inline-block;
             background: none;
-            float: right;
             margin: 10px;
             margin-right: 40px;
             padding: 10px;
             border-radius: 15px;
+            float: right;
         }
 
-        .btn-group button:hover {
+        .menu-btn-group button:hover {
             background-color: #defff8;
+        }
+
+        #menu-collapse {
+            display: none;
+            float: right;
+        }
+
+        #menu-collapse button {
+            border: none;
+            outline: none;
+            background: none;
+            margin: 10px;
+            margin-right: 40px;
+            padding: 10px;
+            border-radius: 15px;
         }
 
         #logo {
@@ -178,10 +198,6 @@
             /*            color: rgba(0, 0, 0, 0.4);*/
         }
 
-        .overlay:hover {
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
         .text {
             color: #DEFFF8;
             font-size: 1.5rem;
@@ -231,8 +247,23 @@
                 grid-column: 1/4;
                 place-self: center center;
             }
+        }
 
+        @media screen and (max-width:768px) {
+            #menu-collapse {
+                display: block;
+            }
 
+            .menu-btn-group {
+                display: none;
+                float: right;
+            }
+
+            .menu-btn-group button {
+                width: 100vw;
+                float: right;
+                margin: 5px;
+            }
         }
     </style>
 </head>
@@ -241,10 +272,17 @@
 
     <header>
 
-        <nav>
-            <div class="btn-group">
+        <nav id="#top-menu">
+
+
 
                 <img id="logo" src="grafik/logo_turkis.svg">
+
+            <div id="menu-collapse">
+                <button><i class="material-icons">menu</i></button>
+            </div>
+
+            <div class="menu-btn-group">
                 <button id="3">Friluftsentusiast</button>
                 <button id="2">Naturelsker</button>
                 <button id="1">Nybegynder</button>
@@ -267,7 +305,6 @@
             <div class="middle">
                 <div class="text">Nybegynder</div>
             </div>
-            <div class="overlay"></div>
         </div>
 
         <div class="container" id="2">
@@ -295,6 +332,15 @@
 
             carousel();
 
+            document.querySelector("#menu-collapse button").addEventListener("click", () => {
+                let buttonGroup = document.querySelector(".menu-btn-group");
+                if (buttonGroup.style.display === "") {
+                    buttonGroup.style.display = "block";
+                } else {
+                    buttonGroup.style.display = "";
+                }
+            })
+
             let containers = document.querySelectorAll(".container");
             containers.forEach(container => {
                 console.log(container)
@@ -303,7 +349,7 @@
                 })
             })
 
-            let buttons = document.querySelectorAll("nav button");
+            let buttons = document.querySelectorAll(".menu-btn-group button");
             buttons.forEach(button => {
                 button.addEventListener("click", () => {
                     location.href = `loop_level1.html?id=${button.id}`;
