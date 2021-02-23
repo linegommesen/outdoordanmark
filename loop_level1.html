@@ -192,11 +192,11 @@
     </header>
     <nav>
        <div class="buttons">
-        <button data-landsdel="alle" class="valgt">Alle</button>
-        <button data-landsdel="Sjælland">Sjælland</button>
-        <button data-landsdel="Jylland">Jylland</button>
-        <button data-landsdel="Fyn">Fyn</button>
-        <button data-landsdel="Bornholm">Bornholm</button>
+        <button data-landsdel="alle" class="valgt" >Alle</button>
+        <button data-landsdel="Sjælland" >Sjælland</button>
+        <button data-landsdel="Jylland" >Jylland</button>
+        <button data-landsdel="Fyn" href="#">Fyn</button>
+        <button data-landsdel="Bornholm" >Bornholm</button>
         </div>
     </nav>
 
@@ -239,7 +239,7 @@
         function start() {
 
             //nav
-            let buttons = document.querySelectorAll("nav button");
+            let buttons = document.querySelectorAll("nav .btn-group button");
             buttons.forEach(button => {
                 button.addEventListener("click", () => {
                     location.href = `loop_level1.html?id=${button.id}`;
@@ -269,7 +269,7 @@
         }
 
         async function hentData() {
-            const resspons = await fetch(url, options);
+            const resspons = await fetch(url + `?q={"level": ${id}}`, options);
             aktivitet = await resspons.json();
             console.log("Aktivitet", aktivitet);
             visAktiviteter();
@@ -298,7 +298,7 @@
 
             })
         }
-        hentData();
+        //hentData();
 
         function visDetaljer(single) {
             location.href = `single.html?id=${single._id}`;
