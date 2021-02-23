@@ -219,6 +219,10 @@
     </template>
 
     <script>
+         const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
+        console.log(id);
+
         const url = "https://outdoordanmark-4fb1.restdb.io/rest/aktiviteter";
 
         const medieurl = "https://outdoordanmark-4fb1.restdb.io/media/";
