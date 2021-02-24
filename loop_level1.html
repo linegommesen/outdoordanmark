@@ -74,6 +74,7 @@
             padding: 10px;
             border-radius: 15px;
             float: right;
+            cursor: pointer;
         }
 
         .menu-btn-group button:hover {
@@ -94,11 +95,13 @@
             padding: 10px;
             border-radius: 15px;
             width: 3.5rem;
+            cursor: pointer;
         }
 
         #logo {
             width: 150px;
             margin: 10px;
+            cursor: pointer;
         }
 
         /* nav mobile view */
@@ -116,6 +119,7 @@
                 width: 100vw;
                 float: right;
                 margin: 5px;
+                cursor: pointer;
             }
         }
 
@@ -209,12 +213,9 @@
         }
 
         article:hover {
-            transform: scale(1.02);
-        }
-
-        article:hover {
-            transform: scale(1.1);
+            transform: scale(1.01);
             background-color: #DEFFF8;
+            cursor: pointer;
         }
 
         .billede {
@@ -314,7 +315,6 @@
         }
 
         /* footer styling slut */
-
     </style>
 </head>
 
@@ -339,7 +339,7 @@
     <nav>
 
         <div id="filter-collapse">
-            <button><i class="material-icons">tune</i></button>
+            <button><i class="material-icons"></i></button>
         </div>
 
         <div class="buttons">
@@ -474,7 +474,6 @@
         function visDetaljer(single) {
             location.href = `single.html?id=${single._id}`;
         }
-
     </script>
 </body>
 
@@ -504,6 +503,4 @@
 
     </div>
 
-</footer>
-
-</html>
+</footer></html>
