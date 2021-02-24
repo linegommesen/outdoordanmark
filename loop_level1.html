@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title> Outdoor Danmark</title>
     <style>
         /*        Farvekoder:
@@ -35,7 +35,7 @@
         }
 
         /* nav top styling */
-       #top-menu {
+        #top-menu {
             position: fixed;
             width: 100vw;
             background-color: white;
@@ -78,6 +78,7 @@
             margin-right: 40px;
             padding: 10px;
             border-radius: 15px;
+            width: 3.5rem;
         }
 
         #logo {
@@ -105,7 +106,6 @@
         .menu-btn-group button:hover {
             background-color: white;
         }
-
 
         /* nav top styling slut */
 
@@ -160,8 +160,6 @@
                 max-width: 30rem;
             }
         }
-
-
 
         img {
             width: 100%;
@@ -275,17 +273,18 @@
 
             }
         }
+
     </style>
 </head>
 
 <body>
     <header>
-         <nav id="#top-menu">
+        <nav id="#top-menu">
 
-                <img id="logo" src="grafik/logo_turkis.svg">
+            <img id="logo" src="grafik/logo_turkis.svg">
 
             <div id="menu-collapse">
-                <button><i class="material-icons">menu</i></button>
+                <button><img src="grafik/burgermenu.png" alt=""></button>
             </div>
 
             <div class="menu-btn-group">
@@ -345,7 +344,7 @@
         function start() {
 
             //nav
-              let buttons = document.querySelectorAll(".menu-btn-group button");
+            let buttons = document.querySelectorAll(".menu-btn-group button");
             buttons.forEach(button => {
                 button.addEventListener("click", () => {
                     location.href = `loop_level1.html?id=${button.id}`;
@@ -418,6 +417,7 @@
         function visDetaljer(single) {
             location.href = `single.html?id=${single._id}`;
         }
+
     </script>
 </body>
 
@@ -447,4 +447,6 @@
 
     </div>
 
-</footer></html>
+</footer>
+
+</html>
