@@ -186,9 +186,17 @@
             }
 
             #filter-collapse {
-                display: block;
                 display: flex;
                 justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .buttons {
+                flex-wrap: wrap;
+            }
+
+            .buttons button {
+                flex-basis: 100%;
             }
         }
 
@@ -413,7 +421,7 @@
             document.querySelector("#filter-collapse button").addEventListener("click", () => {
                 let filterGroup = document.querySelector(".buttons");
                 if (filterGroup.style.display === "") {
-                    filterGroup.style.display = "block";
+                    filterGroup.style.display = "flex";
                     filterImg.src = "grafik/kryds.png";
                 } else {
                     filterGroup.style.display = "";
