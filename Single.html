@@ -24,10 +24,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <style>
+        /* generelt */
         body {
             margin: 0;
         }
 
+        img {
+            width: 100%;
+        }
+
+        body {
+            margin-top: 0;
+        }
+
+        /* generelt slut */
 
         /* nav Styling */
         #top-menu {
@@ -82,6 +92,7 @@
             margin: 10px;
         }
 
+        /* top nav web */
         @media screen and (max-width:768px) {
 
             #menu-collapse {
@@ -104,32 +115,23 @@
             }
         }
 
-
-
         /* nav styling slut */
 
-
-        /* footer styling */
-        .footer_tekst {
-            height: 19rem;
-            background-color: #F29A52;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 300;
-            font-size: 0.9rem;
-            color: #104B5F;
-            text-align: center;
+        /*btn back styling */
+        #btn-back {
+            width: 6rem;
+            height: 2rem;
+            border-radius: 8px;
+            border: 2px solid #104b5f;
+            background-color: white;
+            font-family: 'Fredericka the Great', cursive;
+            color: #104b5f;
+            margin: 15px;
         }
 
-        .bag_om_overskrift {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 400;
-            font-size: 1.17em;
-        }
+        /* btn back styling slut */
 
-
+        /* main styling */
         h1 {
             font-family: 'Karla', sans-serif;
             text-align: center;
@@ -152,33 +154,36 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        img {
-            width: 100%;
-        }
-
-        body {
-            margin-top: 0;
-        }
-
         .ikon {
             width: 30%;
             display: flex;
             flex-direction: row;
         }
 
-        .logo {
-            width: 30vh;
+
+        /* main styling slut */
+
+        /* footer styling */
+        .footer_tekst {
+            height: 19rem;
+            background-color: #F29A52;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: #104B5F;
+            text-align: center;
         }
 
-        #btn-back {
-            width: 6rem;
-            height: 2rem;
-            border-radius: 8px;
-            border: 2px solid #104b5f;
-            background-color: white;
-            font-family: 'Fredericka the Great', cursive;
-            color: #104b5f;
+        .bag_om_overskrift {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 1.17em;
         }
+
+        /* footer styling slut */
 
         @media screen and (min-width:768px) {
 
@@ -270,6 +275,7 @@
                 max-width: 30rem;
             }
         }
+
     </style>
 
 </head>
@@ -295,6 +301,7 @@
         <button id="btn-back">Tilbage</button>
     </header>
 
+    <button id="btn-back">Tilbage</button>
 
     <div class="container">
 
@@ -394,6 +401,7 @@
         function tilbageTilLoop() {
             history.back();
         };
+
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOCW0JedTzZhT9whWzIpPGmDexOQBONgg" async></script>
@@ -424,4 +432,6 @@
 
     </div>
 
-</footer></html>
+</footer>
+
+</html>
