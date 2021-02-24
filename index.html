@@ -322,12 +322,15 @@
 
             carousel();
 
+           let menuImg = document.querySelector("#menu-collapse img");
             document.querySelector("#menu-collapse button").addEventListener("click", () => {
                 let buttonGroup = document.querySelector(".menu-btn-group");
                 if (buttonGroup.style.display === "") {
                     buttonGroup.style.display = "block";
+                    menuImg.src = "grafik/kryds.png";
                 } else {
                     buttonGroup.style.display = "";
+                    menuImg.src = "grafik/burgermenu.png";
                 }
             })
 
