@@ -26,6 +26,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <style>
+        body {
+            margin: 0;
+        }
+
+
         /* nav Styling */
         #top-menu {
             position: fixed;
@@ -79,6 +84,7 @@
         }
 
         @media screen and (max-width:768px) {
+
             #menu-collapse {
                 display: block;
             }
@@ -93,6 +99,10 @@
                 float: right;
                 margin: 5px;
             }
+
+            .info p {
+                margin: 5vw;
+            }
         }
 
         .menu-btn-group button:hover {
@@ -102,7 +112,7 @@
         /* nav styling slut */
 
 
-        /*        footer styling*/
+        /* footer styling */
         .footer_tekst {
             height: 19rem;
             background-color: #F29A52;
@@ -135,7 +145,7 @@
             text-align: center;
         }
 
-        h3 {
+        h4 {
             font-family: 'Karla', sans-serif;
             font-size: 20px;
             text-align: center;
@@ -177,13 +187,17 @@
 
             .info p {
                 font-size: 1.18vw;
+                padding-top: 20px;
+            }
+
+            .info h2 {
+                padding-top: 2vw;
             }
 
             .container {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr;
                 grid-template-rows: 1fr 1fr;
-                grid-gap: 15px;
                 margin: 3rem;
 
                 margin-right: 10vw;
@@ -191,8 +205,6 @@
             }
 
             .container {
-                background-color: azure;
-
                 box-shadow: 0px 0px 10px -10px rgba(0, 0, 0, 0.37);
                 box-shadow: 0px 0px 10px -10px rgba(0, 0, 0, 0.37);
                 box-shadow: 0px 0px 10px -10px rgba(0, 0, 0, 0.37);
@@ -295,7 +307,7 @@
 
         <article class="info">
             <h2 class="navn"></h2>
-            <h3 class="landsdel"></h3>
+            <h4 class="landsdel"></h4>
             <p class="beskrivelse"></p>
         </article>
 
