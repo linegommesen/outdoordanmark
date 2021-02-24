@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title> Outdoor Danmark</title>
     <style>
         /*        Farvekoder:
@@ -35,10 +35,11 @@
         }
 
         /* nav top styling */
-       #top-menu {
+        #top-menu {
             position: fixed;
             width: 100vw;
             background-color: white;
+            z-index: 1000;
         }
 
         .menu-btn-group {
@@ -70,6 +71,8 @@
             float: right;
         }
 
+
+
         #menu-collapse button {
             border: none;
             outline: none;
@@ -79,6 +82,8 @@
             padding: 10px;
             border-radius: 15px;
         }
+
+
 
         #logo {
             width: 150px;
@@ -90,16 +95,22 @@
                 display: block;
             }
 
+
+
             .menu-btn-group {
                 display: none;
                 float: right;
             }
+
+
 
             .menu-btn-group button {
                 width: 100vw;
                 float: right;
                 margin: 5px;
             }
+
+
         }
 
         .menu-btn-group button:hover {
@@ -269,20 +280,53 @@
             /*            text-transform: uppercase;*/
         }
 
+         #filter-collapse {
+            display: none;
+        }
+
+        #filter-collapse  {
+            margin: 10px;
+            margin-right: 40px;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        #filter-collapse button {
+            border: none;
+            outline: none;
+            background: none;
+        }
+
         @media screen and (max-width:768px) {
             .buttons {
-                margin-top: 12rem;
-
+                margin-top: auto;
+                display: none;
             }
+
+            .buttons button {
+                width: 90vw;
+
+                margin: 5px;
+            }
+
+            #filter-collapse {
+                display: block;
+                display: flex;
+                justify-content: center;
+            }
+
+
+
         }
+
     </style>
 </head>
 
 <body>
     <header>
-         <nav id="#top-menu">
+        <nav id="#top-menu">
 
-                <img id="logo" src="grafik/logo_turkis.svg">
+            <img id="logo" src="grafik/logo_turkis.svg">
 
             <div id="menu-collapse">
                 <button><i class="material-icons">menu</i></button>
@@ -295,7 +339,13 @@
             </div>
         </nav>
     </header>
+
     <nav>
+
+        <div id="filter-collapse">
+            <button><i class="material-icons">tune</i></button>
+        </div>
+
         <div class="buttons">
             <button data-landsdel="alle" class="valgt">Alle</button>
             <button data-landsdel="Sjælland">Sjælland</button>
@@ -344,8 +394,8 @@
 
         function start() {
 
-            //nav
-              let buttons = document.querySelectorAll(".menu-btn-group button");
+            //top menu
+            let buttons = document.querySelectorAll(".menu-btn-group button");
             buttons.forEach(button => {
                 button.addEventListener("click", () => {
                     location.href = `loop_level1.html?id=${button.id}`;
@@ -364,7 +414,18 @@
                     buttonGroup.style.display = "";
                 }
             })
-            //nav slut
+            //top menu slut
+
+            //sec menu
+            document.querySelector("#filter-collapse button").addEventListener("click", () => {
+                let filterGroup = document.querySelector(".buttons");
+                if (filterGroup.style.display === "") {
+                    filterGroup.style.display = "block";
+                } else {
+                    filterGroup.style.display = "";
+                }
+            })
+            //sec menu slut
 
             const filterknapper = document.querySelectorAll(".buttons button");
             filterknapper.forEach(knap => knap.addEventListener("click", filterAktiviteter));
@@ -418,6 +479,7 @@
         function visDetaljer(single) {
             location.href = `single.html?id=${single._id}`;
         }
+
     </script>
 </body>
 
@@ -447,4 +509,6 @@
 
     </div>
 
-</footer></html>
+</footer>
+
+</html>
