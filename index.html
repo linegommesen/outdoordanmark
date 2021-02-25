@@ -114,7 +114,7 @@
         }
 
         /* menu mobil */
-         @media screen and (max-width:768px) {
+        @media screen and (max-width:768px) {
             #menu-collapse {
                 display: block;
             }
@@ -130,6 +130,7 @@
                 margin: 5px;
             }
         }
+
         /* menu styling slut */
 
         /* slideshow styling */
@@ -139,8 +140,9 @@
             width: 100vw;
             height: 85vh;
         }
+
         /* slideshow styling slut */
-         .slide_container {
+        .slide_container {
             display: grid;
             grid-template-rows: 1fr;
         }
@@ -165,17 +167,18 @@
                 transform: translateY(0.5vw);
             }
         }
+
         /* header styling slut */
 
         /* main styling */
         main {
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 3fr 3fr 3fr;
+            grid-template-rows: 1fr 1fr 3fr 3fr;
             grid-row-gap: 20px;
         }
 
-          h1 {
+        h1 {
             font-size: 2rem;
             text-align: center;
             font-family: 'Open Sans', sans-serif;
@@ -184,6 +187,14 @@
             color: #104B5F;
             grid-row: 1/2;
             place-self: center center;
+        }
+
+        h3 {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #104B5F;
+            place-self: center center;
+            margin: 4vw;
         }
 
         .levels {
@@ -230,12 +241,21 @@
             main {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: 1fr 3fr;
+                grid-template-rows: 0.1fr 0.1fr 3fr;
                 grid-column-gap: 20px;
             }
 
             h1 {
                 grid-column: 1/4;
+                place-self: center center;
+            }
+
+            h3 {
+                grid-column: 1/4;
+                grid-row: 2/3;
+                text-align: center;
+                font-family: 'Roboto', sans-serif;
+                color: #104B5F;
                 place-self: center center;
             }
         }
@@ -295,11 +315,11 @@
                 max-width: 30rem;
             }
         }
-<<<<<<< HEAD
-=======
+
+        <<<<<<< HEAD=======
         /* footer styling slut */
 
->>>>>>> origin/master
+        >>>>>>>origin/master
     </style>
 </head>
 
@@ -336,7 +356,7 @@
 
 
         <h1>Er du nybegynder eller friluftsentutiast?</h1>
-
+        <h3>Velkommen til Outdoor Danmark, her kan du finde en masse gratis frilufts aktiviter. Start med at vælge dit niveau.</h3>
         <div class="container" id="1">
 
             <img class="levels" src="images/Hareskoven.jpg" alt="Billede til level 1">
@@ -370,7 +390,7 @@
 
             carousel();
 
-           let menuImg = document.querySelector("#menu-collapse img");
+            let menuImg = document.querySelector("#menu-collapse img");
             document.querySelector("#menu-collapse button").addEventListener("click", () => {
                 let buttonGroup = document.querySelector(".menu-btn-group");
                 if (buttonGroup.style.display === "") {
