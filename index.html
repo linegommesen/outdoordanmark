@@ -36,7 +36,7 @@
 
         /* gennerelt slut */
 
-        /*        footer styling*/
+        /* footer styling*/
         footer {
             padding-top: 8rem;
         }
@@ -58,7 +58,8 @@
             font-weight: 400;
         }
 
-        /*        menu styling*/
+        /* header styling */
+        /* menu styling*/
         #top-menu {
             position: fixed;
             width: 100vw;
@@ -72,7 +73,6 @@
 
         .menu-btn-group button {
             font-family: 'Roboto', sans-serif;
-            /*            font-weight: bold;*/
             color: #104B5F;
             font-size: 1.3rem;
             border: none;
@@ -113,11 +113,62 @@
             margin: 10px;
         }
 
+        /* menu mobil */
+         @media screen and (max-width:768px) {
+            #menu-collapse {
+                display: block;
+            }
+
+            .menu-btn-group {
+                display: none;
+                float: right;
+            }
+
+            .menu-btn-group button {
+                width: 100vw;
+                float: right;
+                margin: 5px;
+            }
+        }
+        /* menu styling slut */
+
+        /* slideshow styling */
         .mySlides {
             display: none;
             object-fit: cover;
             width: 100vw;
             height: 85vh;
+        }
+        /* slideshow styling slut */
+         .slide_container {
+            display: grid;
+            grid-template-rows: 1fr;
+        }
+
+        .pil {
+            width: 3.5rem;
+            place-self: center center;
+            margin-top: 2rem;
+        }
+        /* header styling slut */
+
+        /* main styling */
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 3fr 3fr 3fr;
+            grid-row-gap: 20px;
+        }
+
+          h1 {
+            font-size: 2rem;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: #104B5F;
+            grid-row: 1/2;
+            place-self: center center;
         }
 
         .levels {
@@ -139,26 +190,14 @@
         }
 
         .middle {
-            /*            transition: .5s ease;*/
             opacity: 1;
             transform: translate(0%, 0%);
-            /*            -ms-transform: translate(-50%, -50%);*/
             place-self: center center;
         }
 
-        /*
-        .container:hover .image {
-            opacity: 0.3;
-        }
-
-        .container:hover .middle {
-            opacity: 1;
-        }
-*/
         .container:hover {
             transform: scale(1.02);
             cursor: pointer;
-            /*            color: rgba(0, 0, 0, 0.4);*/
         }
 
         .text {
@@ -167,45 +206,10 @@
             font-family: 'Open Sans', sans-serif;
             font-weight: bolder;
             text-transform: uppercase;
-            /*            font-family: 'Fredericka the Great', cursive;*/
-            /*            font-weight: bold;*/
             text-align: center;
         }
 
-        main {
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 3fr 3fr 3fr;
-            grid-row-gap: 20px;
-        }
-
-        main img {
-            /*            border-radius: 15px;*/
-        }
-
-        .pil {
-            width: 3.5rem;
-            place-self: center center;
-            margin-top: 2rem;
-        }
-
-        .slide_container {
-            display: grid;
-            grid-template-rows: 1fr;
-        }
-
-        h1 {
-            font-size: 2rem;
-            text-align: center;
-            font-family: 'Open Sans', sans-serif;
-            font-weight: bolder;
-            text-transform: uppercase;
-            /*            font-family: 'Fredericka the Great', cursive;*/
-            color: #104B5F;
-            grid-row: 1/2;
-            place-self: center center;
-        }
-
+        /* main web version */
         @media screen and (min-width:768px) {
 
             main {
@@ -221,21 +225,26 @@
             }
         }
 
-        @media screen and (max-width:768px) {
-            #menu-collapse {
-                display: block;
-            }
+        /* footer styling*/
+        footer {
+            padding-top: 8rem;
+        }
 
-            .menu-btn-group {
-                display: none;
-                float: right;
-            }
+        .footer_tekst {
+            height: 19rem;
+            background-color: #F29A52;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 100;
+            font-size: 0.9rem;
+            color: #104B5F;
+            text-align: center;
+        }
 
-            .menu-btn-group button {
-                width: 100vw;
-                float: right;
-                margin: 5px;
-            }
+        h3 {
+            font-weight: 400;
         }
 
         /*footer styling på web version*/
@@ -271,6 +280,11 @@
                 max-width: 30rem;
             }
         }
+<<<<<<< HEAD
+=======
+        /* footer styling slut */
+
+>>>>>>> origin/master
     </style>
 </head>
 
@@ -341,12 +355,15 @@
 
             carousel();
 
+           let menuImg = document.querySelector("#menu-collapse img");
             document.querySelector("#menu-collapse button").addEventListener("click", () => {
                 let buttonGroup = document.querySelector(".menu-btn-group");
                 if (buttonGroup.style.display === "") {
                     buttonGroup.style.display = "block";
+                    menuImg.src = "grafik/kryds.png";
                 } else {
                     buttonGroup.style.display = "";
+                    menuImg.src = "grafik/burgermenu.png";
                 }
             })
 
@@ -370,6 +387,7 @@
             })
         }
 
+        //funktion der for slideshowet til at køre
         function carousel() {
             let i;
             let x = document.querySelectorAll(".mySlides");
@@ -382,7 +400,7 @@
                 myIndex = 1
             }
             x[myIndex - 1].style.display = "block";
-            setTimeout(carousel, 5000); // Skift billede efter 2 sec
+            setTimeout(carousel, 5000); // Skift billede efter 5 sec
         }
     </script>
 </body>

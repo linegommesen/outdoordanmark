@@ -20,20 +20,13 @@
 
     <title> Outdoor Danmark</title>
     <style>
-        /*        Farvekoder:
-        Midnight green: #104B5F
-        Light cyan: #DEFFF8
-        Orange red: #F19952
-        Black: #000305
-        White:
-        */
-        * {
-            box-sizing: border-box;
-            /* background-color: #104B5F;*/
-            /*             background-color: #DEFFF8;*/
-        }
+
 
         /* gennerelt */
+         * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
         }
@@ -62,7 +55,6 @@
 
         .menu-btn-group button {
             font-family: 'Roboto', sans-serif;
-            /*            font-weight: bold;*/
             color: #104B5F;
             font-size: 1.3rem;
             border: none;
@@ -95,7 +87,7 @@
             padding: 10px;
             border-radius: 15px;
             width: 3.5rem;
-            cursor: pointer;
+
         }
 
         #logo {
@@ -104,7 +96,7 @@
             cursor: pointer;
         }
 
-        /* nav mobile view */
+        /* top nav web */
         @media screen and (max-width:768px) {
             #menu-collapse {
                 display: block;
@@ -125,6 +117,7 @@
 
         .menu-btn-group button:hover {
             background-color: #defff8;
+            cursor: pointer;
         }
 
         /* nav top styling slut */
@@ -161,11 +154,7 @@
 
         #filter-collapse {
             display: none;
-        }
-
-        #filter-collapse {
             margin: 10px;
-            margin-right: 40px;
             padding: 10px;
             border-radius: 15px;
         }
@@ -174,6 +163,7 @@
             border: none;
             outline: none;
             background: none;
+            width: 3rem;
         }
 
         img {
@@ -192,9 +182,16 @@
             }
 
             #filter-collapse {
-                display: block;
                 display: flex;
                 justify-content: center;
+            }
+
+            .buttons {
+                flex-wrap: wrap;
+            }
+
+            .buttons button {
+                flex-basis: 100%;
             }
         }
 
@@ -325,7 +322,7 @@
             <img id="logo" src="grafik/logo_turkis.svg">
 
             <div id="menu-collapse">
-                <button><img src="grafik/burgermenu.png" alt=""></button>
+                <button><img src="grafik/burgermenu.png" alt="Ikon for menu"></button>
             </div>
 
             <div class="menu-btn-group">
@@ -339,7 +336,7 @@
     <nav>
 
         <div id="filter-collapse">
-            <button><i class="material-icons"></i></button>
+            <button><img src="grafik/sortering.png" alt="Ikon for sortering"></button>
         </div>
 
         <div class="buttons">
@@ -401,23 +398,29 @@
                 location.href = `index.html`;
             })
 
+            let menuImg = document.querySelector("#menu-collapse img");
             document.querySelector("#menu-collapse button").addEventListener("click", () => {
                 let buttonGroup = document.querySelector(".menu-btn-group");
                 if (buttonGroup.style.display === "") {
                     buttonGroup.style.display = "block";
+                    menuImg.src = "grafik/kryds.png";
                 } else {
                     buttonGroup.style.display = "";
+                    menuImg.src = "grafik/burgermenu.png";
                 }
             })
             //top menu slut
 
             //sec menu
+            let filterImg = document.querySelector("#filter-collapse img");
             document.querySelector("#filter-collapse button").addEventListener("click", () => {
                 let filterGroup = document.querySelector(".buttons");
                 if (filterGroup.style.display === "") {
-                    filterGroup.style.display = "block";
+                    filterGroup.style.display = "flex";
+                    filterImg.src = "grafik/kryds.png";
                 } else {
                     filterGroup.style.display = "";
+                    filterImg.src = "grafik/sortering.png";
                 }
             })
             //sec menu slut
@@ -462,7 +465,7 @@
                     klon.querySelector(".landsdel").textContent = aktiviteter.landsdel;
                     klon.querySelector(".ikon_1").src = medieurl + aktiviteter.ikon_1;
                     klon.querySelector(".ikon_2").src = medieurl + aktiviteter.ikon_2;
-                    //                klon.querySelector(".ikon_3").src = medieurl + aktiviteter.ikon_3;
+                    klon.querySelector(".ikon_3").src = medieurl + aktiviteter.ikon_3;
                     klon.querySelector(".aktiviteter").addEventListener("click", () => visDetaljer(aktiviteter));
                     main.appendChild(klon);
                 }
