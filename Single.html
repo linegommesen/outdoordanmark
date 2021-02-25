@@ -128,6 +128,7 @@
             font-family: 'Roboto', sans-serif;
             color: #104b5f;
             margin: 15px;
+            margin-top: 65px;
         }
 
         #btn-back:hover {
@@ -306,7 +307,7 @@
             </div>
         </nav>
 
-        <button id="btn-back">Tilbage</button>
+
     </header>
 
     <button id="btn-back">Tilbage</button>
@@ -407,10 +408,13 @@
         };
 
         function visAktiviteter(aktivitet) {
+            console.log("visAktivitet");
+
             document.querySelector(".billede").src = medieurl + aktivitet.billede;
             document.querySelector(".navn").textContent = aktivitet.navn;
             document.querySelector(".landsdel").textContent = aktivitet.landsdel;
             document.querySelector(".beskrivelse").textContent = aktivitet.beskrivelse;
+
             document.querySelector("#btn-back").addEventListener("click", tilbageTilLoop);
         };
 
