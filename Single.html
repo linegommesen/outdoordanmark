@@ -15,7 +15,7 @@
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -53,7 +53,6 @@
 
         .menu-btn-group button {
             font-family: 'Roboto', sans-serif;
-            /*            font-weight: bold;*/
             color: #104B5F;
             font-size: 1.3rem;
             border: none;
@@ -127,9 +126,14 @@
             border-radius: 8px;
             border: 2px solid #104b5f;
             background-color: white;
-            font-family: 'Fredericka the Great', cursive;
+            font-family: 'Roboto', sans-serif;
             color: #104b5f;
             margin: 15px;
+        }
+
+        #btn-back:hover {
+            cursor: pointer;
+            background-color: rgba(241, 153, 82, 0.49);
         }
 
         /* btn back styling slut */
@@ -336,26 +340,31 @@
 
         function visKort(aktivitet) {
 
-            // TEST LOCATION ///////
-            const sted = {
-                lat: 55.759910,
-                lng: 12.374659
-            };
-            aktivitet.location = sted;
-            ////////////////////////
+            console.log("location", aktivitet.location)
 
-            console.log(aktivitet.location)
+        //Map code
+        //Her defienres sted, ved brug af kordinaterne lat og lng, der hentes fra json.
+        const sted = {
+                lat: parseFloat(aktivitet.location[0]),
+                lng: parseFloat(aktivitet.location[1])
+            };
+
+            console.log("sted", sted);
+
+            //Kortet vælges og center sættes til sted
             map = new google.maps.Map(document.getElementById('kort'), {
-                center: aktivitet.location,
+                center: sted,
                 zoom: 15,
             });
 
+            //Her indstilles den røde markør på kortet
             new google.maps.Marker({
-                position: aktivitet.location,
+                position: sted,
                 map,
                 title: aktivitet.navn,
             });
         }
+        //Map slut
 
         async function hentData() {
             console.log("loadData");
